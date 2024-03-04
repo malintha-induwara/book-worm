@@ -15,37 +15,37 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="374.0" layoutY="40.0" styleClass="label-d24" text="Worm">
+      <Label layoutX="369.0" layoutY="40.0" styleClass="label-d24" text="Worm">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="120.0" layoutY="118.0" styleClass="label-welcome" text="Welcome">
+      <Label layoutX="136.0" layoutY="118.0" styleClass="label-welcome" text="Welcome">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="183.0" styleClass="label-loginWithUsername" text="Login with Username">
+      <Label layoutX="171.0" layoutY="183.0" styleClass="label-loginWithUsername" text="Login with Username">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="100.0" layoutY="243.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="100.0" layoutY="327.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXButton layoutX="180.0" layoutY="417.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
-      <Line endX="125.0" layoutX="95.0" layoutY="501.0" startX="44.0" strokeWidth="0.4" />
-      <Line endX="125.0" layoutX="205.0" layoutY="501.0" startX="44.0" strokeWidth="0.4" />
-      <Label layoutX="224.0" layoutY="491.0" styleClass="label-or" text="OR">
+      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="246.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="330.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXButton layoutX="195.0" layoutY="429.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
+      <Line endX="125.0" layoutX="114.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
+      <Line endX="125.0" layoutX="219.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
+      <Label layoutX="240.0" layoutY="503.0" styleClass="label-or" text="OR">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="117.0" layoutY="535.0" styleClass="label-dontHaveAccount" text="Don't have account?">
+      <Label layoutX="136.0" layoutY="533.0" styleClass="label-dontHaveAccount" text="Don't have account?">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="255.0" layoutY="535.0" onMouseClicked="#btnRegister" styleClass="label-register" text="Register Now">
+      <Label layoutX="274.0" layoutY="533.0" onMouseClicked="#btnRegister" styleClass="label-register" text="Register Now">
          <font>
             <Font size="14.0" />
          </font>
