@@ -13,29 +13,29 @@ import java.io.IOException;
 
 public class LoginFormController {
 
-//
-//    @FXML
-//    private MFXPasswordField txtPassword;
-//
-//    @FXML
-//    private MFXTextField txtUsername;
-//
-//    @FXML
-//    private AnchorPane loginPane;
-//
-//    @FXML
-//    void btnLogin(ActionEvent event) {
-//
-//
-//    }
-//
-//    @FXML
-//    void btnRegister(MouseEvent event) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/registerForm.fxml"));
-//        Pane registerPane = (Pane) fxmlLoader.load();
-//        loginPane.getChildren().clear();
-//        loginPane.getChildren().add(registerPane);
-//    }
+
+    @FXML
+    private MFXPasswordField txtPassword;
+
+    @FXML
+    private MFXTextField txtUsername;
+
+    @FXML
+    private AnchorPane loginPane;
+
+    @FXML
+    void btnLogin(ActionEvent event) {
+
+
+    }
+
+    @FXML
+    void btnRegister(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/registerForm.fxml"));
+        Pane registerPane = (Pane) fxmlLoader.load();
+        loginPane.getChildren().clear();
+        loginPane.getChildren().add(registerPane);
+    }
 
 
 }

@@ -11,6 +11,6 @@
             <Image url="@../assets/images/loginImage.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="468.0" prefHeight="630.0" prefWidth="482.0" />
+      <AnchorPane fx:id="holderPane" layoutX="468.0" prefHeight="630.0" prefWidth="482.0" />
    </children>
 </AnchorPane>
