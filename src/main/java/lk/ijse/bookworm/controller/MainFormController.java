@@ -14,7 +14,7 @@ public class MainFormController {
     private AnchorPane holderPane;
 
     public void initialize() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/loginForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userLoginForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(registerPane);

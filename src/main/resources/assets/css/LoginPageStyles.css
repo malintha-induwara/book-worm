@@ -23,6 +23,11 @@
     -fx-text-fill: #636e72;
 }
 
+.label-error{
+    -fx-font-family: 'Open Sans Regular';
+    -fx-text-fill: #ff3e56;
+}
+
 .label-or{
     -fx-font-family: 'Open Sans Regular';
     -fx-text-fill: #000000;
@@ -44,6 +49,14 @@
     -fx-font-size: 15;
     -fx-font-family: 'Visby Round CF Medium';
 }
+
+
+.mfx-text-field-error{
+    -mfx-main: #ff3e56;
+    -fx-font-size: 15;
+    -fx-font-family: 'Visby Round CF Medium';
+}
+
 
 .mfx-button-login{
     -fx-font-size: 14px;

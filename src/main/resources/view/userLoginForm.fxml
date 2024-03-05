@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginPane" prefHeight="630.0" prefWidth="482.0" styleClass="pane" stylesheets="@../assets/css/LoginPageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.LoginFormController">
+<AnchorPane fx:id="loginPane" prefHeight="630.0" prefWidth="482.0" styleClass="pane" stylesheets="@../assets/css/LoginPageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.UserLoginFormController">
    <children>
       <Label layoutX="311.0" layoutY="40.0" styleClass="label-hostel" text="Book">
          <font>
@@ -30,9 +30,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="246.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="330.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXButton layoutX="195.0" layoutY="429.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
+      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="259.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="343.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXButton layoutX="195.0" layoutY="445.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
       <Line endX="125.0" layoutX="114.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Line endX="125.0" layoutX="219.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Label layoutX="240.0" layoutY="503.0" styleClass="label-or" text="OR">
@@ -51,6 +51,11 @@
          </font>
       </Label>
       <Label layoutX="203.0" layoutY="570.0" onMouseClicked="#btnAdminLogin" styleClass="label-register" text="Admin Portal">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblError" layoutX="115.0" layoutY="408.0" styleClass="label-error" text="Check username or password." visible="false">
          <font>
             <Font size="14.0" />
          </font>
