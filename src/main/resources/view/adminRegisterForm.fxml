@@ -22,7 +22,7 @@
       </Label>
       <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="109.0" layoutY="194.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
       <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="109.0" layoutY="274.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXButton layoutX="195.0" layoutY="445.0" onAction="#btnRegister" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="Register" />
+      <MFXButton layoutX="195.0" layoutY="439.0" onAction="#btnRegister" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="Register" />
       <Line endX="125.0" layoutX="114.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Line endX="125.0" layoutX="219.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Label layoutX="240.0" layoutY="503.0" styleClass="label-or" text="OR">
@@ -41,12 +41,12 @@
          </font>
       </Label>
       <MFXPasswordField fx:id="txtConfirmPassword" floatMode="BORDER" floatingText="Confirm Password" layoutX="109.0" layoutY="352.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <Label layoutX="311.0" layoutY="40.0" styleClass="label-hostel" text="Book">
+      <Label layoutX="330.0" layoutY="22.0" styleClass="label-hostel" text="Book">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="369.0" layoutY="40.0" styleClass="label-d24" text="Worm">
+      <Label layoutX="388.0" layoutY="22.0" styleClass="label-d24" text="Worm">
          <font>
             <Font size="25.0" />
          </font>

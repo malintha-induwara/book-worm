@@ -8,7 +8,7 @@
 <AnchorPane fx:id="dashBoardPane" prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AdminDashBoardFormController">
    <children>
       <Pane layoutX="27.0" layoutY="151.0" prefHeight="189.0" prefWidth="190.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css" />
-      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/DashBoardStyles.css" text="Dashboard">
+      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Dashboard">
          <font>
             <Font size="30.0" />
          </font>
