@@ -1,5 +1,8 @@
 @import '../fonts/Fonts.css';
 
+
+
+/*Admin Dashboard*/
 .pane{
     -fx-background-color: #FFFFFFFF;
 }
@@ -144,4 +147,40 @@
 .mfx-button-active {
     -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
     -fx-text-fill:  #FFFFFF;
+}
+
+
+
+/*User Dashboard*/
+
+.mfx-button-BookHistory{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+
+.mfx-button-BookHistory:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/borrowBooks-white.png');
+}
+
+
+
+
+.mfx-button-BookSearch{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+.mfx-button-BookSearch:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/book-white.png');
 }

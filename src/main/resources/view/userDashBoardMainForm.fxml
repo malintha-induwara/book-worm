@@ -6,43 +6,18 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.DashboardMainFormController">
+<AnchorPane prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.UserDashBoardMainFormController">
    <children>
       <AnchorPane prefHeight="680.0" prefWidth="220.0" styleClass="pane" stylesheets="@../assets/css/DashBoardStyles.css">
          <children>
             <VBox layoutY="119.0" prefHeight="369.0" prefWidth="190.0" spacing="10.0">
                <children>
-                  <MFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" onAction="#btnDashboardOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Dashboard" text="Dashboard">
-                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/images/dashboard-gray.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </MFXButton>
-                  <MFXButton fx:id="btnBookBorrow" alignment="BASELINE_LEFT" onAction="#btnBorrowBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BorrowBooks" text="Book Borrow">
-                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/images/borrowBooks-gray.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </MFXButton>
-                  <MFXButton fx:id="btnBook" alignment="BASELINE_LEFT" onAction="#btnBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Book" text="Books">
+                  <MFXButton fx:id="btnBookSearch" alignment="BASELINE_LEFT" onAction="#btnBookSearchOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BookSearch" text="Books Search">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,26 +29,17 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton fx:id="btnUser" alignment="BASELINE_LEFT" onAction="#btnUserOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-User" text="Users">
+                  <MFXButton fx:id="btnHistory" alignment="BASELINE_LEFT" onAction="#btnHistoryOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BookHistory" text="History">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/images/user-gray.png" />
+                              <Image url="@../assets/images/borrowBooks-gray.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </MFXButton>
-                  <MFXButton fx:id="btnBranch" alignment="BASELINE_LEFT" onAction="#btnBranchOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Branch" text="Branches">
-                     <graphic>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/images/branch-gray.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <padding>
                         <Insets left="35.0" />
                      </padding>
@@ -117,5 +83,11 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="holderPane" layoutX="221.0" prefHeight="680.0" prefWidth="804.0" />
+      <Pane layoutX="814.0" layoutY="44.0" prefHeight="65.0" prefWidth="210.0" styleClass="pane-admin-details" stylesheets="@../assets/css/DashBoardStyles.css">
+         <children>
+            <Circle fill="WHITE" layoutX="44.0" layoutY="33.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="94.0" layoutY="20.0" text="John Doe" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -35,7 +35,7 @@ public class AdminLoginFormController {
 
     @FXML
     void btnLogin(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashBoardMainForm.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/adminDashBoardMainForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -49,7 +49,12 @@ public class AdminLoginFormController {
     }
 
     @FXML
-    void btnRegister(MouseEvent event) {
+    void btnRegister(MouseEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminRegisterForm.fxml"));
+        Pane adminRegister = (Pane) fxmlLoader.load();
+        adminLoginPane.getChildren().clear();
+        adminLoginPane.getChildren().add(adminRegister);
 
     }
 

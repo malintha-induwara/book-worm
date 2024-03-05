@@ -5,10 +5,13 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -32,13 +35,25 @@ public class UserLoginFormController {
 
     @FXML
     void btnLogin(ActionEvent event) throws IOException {
+//
+//        boolean isLoginValidated = validateLogin();
+//
+//        if (!isLoginValidated) {
+//            return;
+//        }
 
-        boolean isLoginValidated = validateLogin();
 
-        if (!isLoginValidated) {
-            return;
-        }
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/userDashBoardMainForm.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Dashboard");
+        stage.show();
 
+        //Close the Current Window
+        Stage loginStage = (Stage) loginPane.getScene().getWindow();
+        loginStage.close();
 
     }
 
