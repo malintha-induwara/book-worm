@@ -20,14 +20,14 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="122.0" styleClass="label-welcome" text="Admin Portal">
+      <Label layoutX="86.0" layoutY="118.0" styleClass="label-welcome" text="Admin Portal">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="246.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="330.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXButton layoutX="195.0" layoutY="429.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
+      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="259.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="343.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXButton layoutX="195.0" layoutY="445.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
       <Line endX="125.0" layoutX="114.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Line endX="125.0" layoutX="219.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
       <Label layoutX="240.0" layoutY="503.0" styleClass="label-or" text="OR">
@@ -48,6 +48,11 @@
       <Label layoutX="211.0" layoutY="568.0" onMouseClicked="#btnUserLogin" styleClass="label-register" text="User Portal">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="171.0" layoutY="183.0" styleClass="label-loginWithUsername" text="Login with Username">
+         <font>
+            <Font size="15.0" />
          </font>
       </Label>
    </children>
