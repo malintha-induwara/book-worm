@@ -47,3 +47,95 @@
     -fx-text-fill:  #FFFFFF;
     -fx-graphic: url('../images/dashboard-white.png');
 }
+
+
+.mfx-button-BorrowBooks{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+
+.mfx-button-BorrowBooks:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/borrowBooks-white.png');
+}
+
+
+.mfx-button-Book{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+.mfx-button-Book:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/book-white.png');
+}
+
+
+.mfx-button-User{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+.mfx-button-User:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/user-white.png');
+}
+
+
+.mfx-button-Branch{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+.mfx-button-Branch:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/branch-white.png');
+}
+
+.mfx-button-Settings{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+
+.mfx-button-Settings:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/setting-white.png');
+}
+
+
+.mfx-button-Logout{
+    -fx-font-family: 'Roboto Bold';
+    -fx-font-size: 16;
+    -fx-text-fill:  #485460;
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 0 25 25 0;
+}
+
+
+.mfx-button-Logout:hover {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+    -fx-graphic: url('../images/logout-white.png');
+}
