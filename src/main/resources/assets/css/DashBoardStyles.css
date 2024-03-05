@@ -139,3 +139,9 @@
     -fx-text-fill:  #FFFFFF;
     -fx-graphic: url('../images/logout-white.png');
 }
+
+
+.mfx-button-active {
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+}

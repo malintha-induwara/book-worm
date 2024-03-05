@@ -1,8 +1,10 @@
 package lk.ijse.bookworm.controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -15,6 +17,26 @@ public class DashboardMainFormController {
 
     @FXML
     private AnchorPane holderPane;
+
+    @FXML
+    private MFXButton btnBook;
+
+    @FXML
+    private MFXButton btnBookBorrow;
+
+    @FXML
+    private MFXButton btnBranch;
+
+    @FXML
+    private MFXButton btnDashboard;
+
+    @FXML
+    private MFXButton btnSetting;
+
+    @FXML
+    private MFXButton btnUser;
+
+
 
 
     public void initialize() throws IOException {

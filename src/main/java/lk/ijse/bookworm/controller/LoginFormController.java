@@ -52,5 +52,14 @@ public class LoginFormController {
     }
 
 
+    @FXML
+    void btnAdminLogin(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminPortalLoginForm.fxml"));
+        Pane adminLoginPane = (Pane) fxmlLoader.load();
+        loginPane.getChildren().clear();
+        loginPane.getChildren().add(adminLoginPane);
+    }
+
+
 }
 

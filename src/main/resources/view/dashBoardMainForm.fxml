@@ -15,7 +15,7 @@
          <children>
             <VBox layoutY="119.0" prefHeight="369.0" prefWidth="190.0" spacing="10.0">
                <children>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnDashboardOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Dashboard" text="Dashboard">
+                  <MFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" onAction="#btnDashboardOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Dashboard" text="Dashboard">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -27,7 +27,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnBorrowBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BorrowBooks" text="Book Borrow">
+                  <MFXButton fx:id="btnBookBorrow" alignment="BASELINE_LEFT" onAction="#btnBorrowBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BorrowBooks" text="Book Borrow">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Book" text="Books">
+                  <MFXButton fx:id="btnBook" alignment="BASELINE_LEFT" onAction="#btnBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Book" text="Books">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnUserOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-User" text="Users">
+                  <MFXButton fx:id="btnUser" alignment="BASELINE_LEFT" onAction="#btnUserOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-User" text="Users">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnBranchOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Branch" text="Branches">
+                  <MFXButton fx:id="btnBranch" alignment="BASELINE_LEFT" onAction="#btnBranchOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Branch" text="Branches">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton alignment="BASELINE_LEFT" onAction="#btnSettingsOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Settings" text="Settings">
+                  <MFXButton fx:id="btnSetting" alignment="BASELINE_LEFT" onAction="#btnSettingsOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-Settings" text="Settings">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
