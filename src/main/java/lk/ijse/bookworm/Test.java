@@ -16,6 +16,8 @@ public class Test {
         book.setTitle("Harry Potter");
         book.setAuthor("J.K. Rowling");
         book.setGenre("Fantasy");
+        book.setAvailable(true);
+
 
         session.save(book);
         transaction.commit();

@@ -1,7 +1,7 @@
 package lk.ijse.bookworm.util;
 
 
-import lk.ijse.bookworm.entity.Book;
+import lk.ijse.bookworm.entity.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +16,10 @@ public class SessionFactoryConfig {
         sessionFactory = new Configuration()
                 .mergeProperties(Utility.getProperties())
                 .addAnnotatedClass(Book.class)
+                .addAnnotatedClass(Admin.class)
+                .addAnnotatedClass(BookTransactions.class)
+                .addAnnotatedClass(Branch.class)
+                .addAnnotatedClass(User.class)
                 .buildSessionFactory();
     }
 

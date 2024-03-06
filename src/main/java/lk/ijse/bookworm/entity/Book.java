@@ -2,11 +2,7 @@ package lk.ijse.bookworm.entity;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 
 @Entity
@@ -26,14 +22,24 @@ public class Book {
     @Column(name = "genre")
     private String genre;
 
+    @Column(name = "available")
+    private boolean available;
+
+    @ManyToOne
+    @JoinColumn(name = "branch_id",referencedColumnName = "branch_id")
+    private Branch branch;
+
+
     public Book() {
     }
 
-    public Book(String bookID, String title, String author, String genre) {
+    public Book(String bookID, String title, String author, String genre, boolean available, Branch branch) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.available = available;
+        this.branch = branch;
     }
 
     public String getBookID() {
@@ -68,6 +74,22 @@ public class Book {
         this.genre = genre;
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -75,6 +97,8 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
+                ", available=" + available +
+                ", branch=" + branch +
                 '}';
     }
 }
