@@ -23,6 +23,13 @@
     -fx-font-family: 'Visby Round CF Medium';
 }
 
+.mfx-text-field-error{
+    -mfx-main: #ff3e56;
+    -fx-font-size: 15;
+    -fx-font-family: 'Visby Round CF Medium';
+}
+
+
 
 
 .mfx-button-add{

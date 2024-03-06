@@ -22,3 +22,18 @@
     -fx-background-color: #0984e3;
     -fx-text-fill: #ffffff;
 }
+
+.mfx-button-remove{
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Bold';
+    -fx-background-color: #f5194d;
+    -fx-text-fill: #ffffff;
+}
+
+.mfx-button-update{
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Bold';
+    -fx-background-color: #64f526;
+    -fx-text-fill: #ffffff;
+}
+

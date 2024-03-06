@@ -4,29 +4,28 @@ package lk.ijse.bookworm.dto;
 
 public class UserDto {
 
-    private String userId;
+    private String email;
     private String name;
     private String address;
-    private String email;
+
     private String password;
 
     public UserDto() {
     }
 
-    public UserDto(String userId, String name, String address, String email, String password) {
-        this.userId = userId;
+    public UserDto(String email, String name, String address, String password) {
+        this.email = email;
         this.name = name;
         this.address = address;
-        this.email = email;
         this.password = password;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -45,14 +44,6 @@ public class UserDto {
         this.address = address;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -64,10 +55,9 @@ public class UserDto {
     @Override
     public String toString() {
         return "UserDto{" +
-                "userId='" + userId + '\'' +
+                "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

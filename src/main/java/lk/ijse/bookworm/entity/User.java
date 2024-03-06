@@ -10,8 +10,9 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(name = "user_id",length = 30)
-    private String userId;
+    @Column(name = "email",length = 30)
+    private String email;
+
 
     @Column(name = "name")
     private String name;
@@ -19,8 +20,6 @@ public class User {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "email")
-    private String email;
 
     @Column(name = "password")
     private String password;
@@ -32,21 +31,19 @@ public class User {
     public User() {
     }
 
-    public User(String userId, String name, String address, String email, String password, List<BookTransactions> bookTransactions) {
-        this.userId = userId;
+    public User(String email, String name, String address, String password) {
+        this.email = email;
         this.name = name;
         this.address = address;
-        this.email = email;
         this.password = password;
-        this.bookTransactions = bookTransactions;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -63,14 +60,6 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
@@ -92,10 +81,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId='" + userId + '\'' +
+                "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", bookTransactions=" + bookTransactions +
                 '}';

@@ -23,7 +23,7 @@ public class BookTransactions {
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",referencedColumnName = "user_id",insertable = false,updatable = false)
+    @JoinColumn(name = "email",referencedColumnName = "email",insertable = false,updatable = false)
     private User user;
 
 
