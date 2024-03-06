@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/addBookForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/view/mainForm.fxml"));
         Parent rootNode = fxmlLoader.load();
         //These for the MaterialFX library
         UserAgentBuilder.builder()
