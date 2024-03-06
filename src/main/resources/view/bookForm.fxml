@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="bookPane" prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BookFormController">
    <children>
       <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Book">
@@ -32,7 +31,7 @@
           <TableColumn prefWidth="171.0" text="Title" />
             <TableColumn prefWidth="170.0" text="Author" />
             <TableColumn prefWidth="110.0" text="Genre" />
-            <TableColumn prefWidth="76.0" text="B ID" />
+            <TableColumn prefWidth="76.0" text="AV" />
             <TableColumn text="Update" />
             <TableColumn text="Remove" />
         </columns>

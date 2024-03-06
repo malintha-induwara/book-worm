@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.bookworm.controller.AddBookFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="550.0" prefWidth="430.0" styleClass="pane" stylesheets="@../assets/css/PopUpStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AddBookFormController">
+   <children>
+      <Label layoutX="45.0" layoutY="44.0" styleClass="label-title" text="Add Book">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="129.0" styleClass="label-properties" text="Book ID">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="191.0" styleClass="label-properties" text="Book Titlte">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="258.0" styleClass="label-properties" text="Author">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="324.0" styleClass="label-properties" text="Genere">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="393.0" styleClass="label-properties" text="Branch">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <MFXTextField floatMode="DISABLED" layoutX="191.0" layoutY="118.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
+      <MFXTextField floatMode="DISABLED" layoutX="191.0" layoutY="180.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
+      <MFXTextField floatMode="DISABLED" layoutX="191.0" layoutY="247.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
+      <MFXTextField floatMode="DISABLED" layoutX="191.0" layoutY="313.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
+      <MFXTextField floatMode="DISABLED" layoutX="191.0" layoutY="382.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
+      <MFXButton layoutX="87.0" layoutY="467.0" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PopUpStyles.css" text="Add" />
+      <MFXButton layoutX="244.0" layoutY="467.0" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-cancel" stylesheets="@../assets/css/PopUpStyles.css" text="Cancel" />
+   </children>
 </AnchorPane>

@@ -52,6 +52,6 @@
          </font>
       </Label>
       <MFXTextField fx:id="txtName" floatMode="BORDER" floatingText="Name" layoutX="109.0" layoutY="118.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field" />
-      <MFXTextField fx:id="txtName1" floatMode="BORDER" floatingText="Address" layoutX="109.0" layoutY="177.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXTextField fx:id="txtAddress" floatMode="BORDER" floatingText="Address" layoutX="109.0" layoutY="177.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field" />
    </children>
 </AnchorPane>

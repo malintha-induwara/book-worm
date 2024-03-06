@@ -27,6 +27,13 @@ public class UserRegisterFormController {
     private MFXTextField txtUsername;
 
     @FXML
+    private MFXTextField txtName;
+
+
+    @FXML
+    private MFXTextField txtAddress;
+
+    @FXML
     private Label lblError;
 
     @FXML
@@ -50,6 +57,27 @@ public class UserRegisterFormController {
     }
 
     private boolean validateRegister() {
+
+        boolean isNameValid = txtName.getText().matches("^[a-zA-Z]{3,}$");
+        if (!isNameValid) {
+            txtName.requestFocus();
+            txtName.getStyleClass().add("mfx-text-field-error");
+            return false;
+        }
+
+        txtName.getStyleClass().remove("mfx-text-field-error");
+
+
+        boolean isAddressValid = txtAddress.getText().matches("^[a-zA-Z0-9]{3,}$");
+
+        if (!isAddressValid) {
+            txtAddress.requestFocus();
+            txtAddress.getStyleClass().add("mfx-text-field-error");
+            return false;
+        }
+
+        txtAddress.getStyleClass().remove("mfx-text-field-error");
+
 
         boolean isUserNameValid = txtUsername.getText().matches("^[a-zA-Z0-9]{3,}$");
         if (!isUserNameValid) {
