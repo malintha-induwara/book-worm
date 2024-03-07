@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="550.0" prefWidth="430.0" styleClass="pane" stylesheets="@../assets/css/PopUpStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AddBookFormController">
+<AnchorPane prefHeight="550.0" prefWidth="430.0" styleClass="pane" stylesheets="@../assets/css/PopUpStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BookDataFormController">
    <children>
       <Label layoutX="45.0" layoutY="44.0" styleClass="label-title" text="Add Book">
          <font>

@@ -149,7 +149,7 @@ public class UserFormController {
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/addUserForm.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/UserDataForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);

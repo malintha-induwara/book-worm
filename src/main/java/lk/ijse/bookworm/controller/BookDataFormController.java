@@ -1,6 +1,6 @@
 package lk.ijse.bookworm.controller;
 
-public class AddBookFormController {
+public class BookDataFormController {
 
 
 

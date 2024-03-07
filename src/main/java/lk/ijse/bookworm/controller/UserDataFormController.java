@@ -9,7 +9,7 @@ import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.UserDto;
 
-public class AddUserFormController {
+public class UserDataFormController {
 
     @FXML
     private MFXTextField txtAddress;

@@ -13,7 +13,7 @@ public class BookFormController {
 
     @FXML
     void btnOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/addBookForm.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/BookDataForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
