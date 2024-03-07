@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.bo;
 
+import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.bo.custom.impl.UserBOImpl;
 
 public class BOFactory {
@@ -12,13 +13,15 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-       USER
+       USER,ADMIN
     }
 
     public SuperBO getBO(BOTypes boTypes){
         switch(boTypes){
             case USER:
                 return new UserBOImpl();
+            case ADMIN:
+                return new AdminBOImpl();
             default:
                 return null;
         }

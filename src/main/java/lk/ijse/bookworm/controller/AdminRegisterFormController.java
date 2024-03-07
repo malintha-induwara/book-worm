@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.UserBO;
 
 import java.io.IOException;
 
@@ -29,6 +31,8 @@ public class AdminRegisterFormController {
     @FXML
     private MFXTextField txtUsername;
 
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+
     @FXML
     void btnLogin(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminLoginForm.fxml"));
@@ -46,6 +50,11 @@ public class AdminRegisterFormController {
         if (!isLoginValidated) {
             return;
         }
+
+
+
+
+
 
     }
 

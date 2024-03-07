@@ -24,10 +24,9 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String username, String password, List<Branch> branch) {
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
-        this.branch = branch;
     }
 
     public String getUsername() {

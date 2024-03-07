@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.dao;
 
+import lk.ijse.bookworm.dao.custom.impl.AdminDAOImpl;
 import lk.ijse.bookworm.dao.custom.impl.UserDAOImpl;
 
 public class DAOFactory {
@@ -14,13 +15,15 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        USER
+        USER,ADMIN
     }
 
     public SuperDAO  getDAO(DAOTypes types) {
         switch (types) {
             case USER:
                 return  new UserDAOImpl();
+            case ADMIN:
+                return new AdminDAOImpl();
             default:
                 return null;
         }
