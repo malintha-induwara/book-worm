@@ -8,5 +8,5 @@ public interface AdminBO extends SuperBO {
     boolean saveAdmin(AdminDto dto);
     boolean updateAdmin(AdminDto dto);
     boolean deleteAdmin(String id);
-    AdminDto searchAdmin(String id);
+    boolean isAdminExist(AdminDto dto);
 }

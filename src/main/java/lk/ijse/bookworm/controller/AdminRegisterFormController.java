@@ -5,12 +5,15 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.AdminBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.dto.AdminDto;
 
 import java.io.IOException;
 
@@ -31,7 +34,7 @@ public class AdminRegisterFormController {
     @FXML
     private MFXTextField txtUsername;
 
-    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+    private final AdminBO adminBO = (AdminBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ADMIN);
 
     @FXML
     void btnLogin(MouseEvent event) throws IOException {
@@ -43,7 +46,7 @@ public class AdminRegisterFormController {
     }
 
     @FXML
-    void btnRegister(ActionEvent event) {
+    void btnRegister(ActionEvent event) throws IOException {
 
         boolean isLoginValidated = validateRegister();
 
@@ -51,11 +54,28 @@ public class AdminRegisterFormController {
             return;
         }
 
+        AdminDto adminDto = new AdminDto(txtUsername.getText(), txtPassword.getText());
+        boolean isSaved = adminBO.saveAdmin(adminDto);
 
+        if (isSaved) {
+            clearFields();
+            loadLoginPane();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "User Already Exists ").show();
+        }
+    }
 
+    private void loadLoginPane() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userLoginForm.fxml"));
+        Pane loginPane = (Pane) fxmlLoader.load();
+        registerPane.getChildren().clear();
+        registerPane.getChildren().add(loginPane);
+    }
 
-
-
+    private void clearFields() {
+        txtUsername.clear();
+        txtPassword.clear();
+        txtConfirmPassword.clear();
     }
 
     private boolean validateRegister() {

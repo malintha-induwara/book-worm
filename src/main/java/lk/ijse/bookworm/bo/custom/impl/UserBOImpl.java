@@ -11,6 +11,8 @@ import java.util.List;
 
 public class UserBOImpl implements UserBO {
 
+
+
     UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
 
 

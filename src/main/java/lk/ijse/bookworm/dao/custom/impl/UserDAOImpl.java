@@ -74,6 +74,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User search(String id) {
         Session session = SessionFactoryConfig.getInstance().getSession();
+
         try {
             User user= session.get(User.class, id);
             return user;
