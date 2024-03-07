@@ -9,7 +9,7 @@ import lk.ijse.bookworm.entity.Admin;
 public class AdminBOImpl implements AdminBO {
 
 
-    public static String userName;
+    public static Admin admin;
 
     AdminDAO adminDAO =(AdminDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ADMIN);
 
@@ -34,13 +34,12 @@ public class AdminBOImpl implements AdminBO {
         Admin search = adminDAO.search(dto.getUsername());
         if (search != null) {
             if (search.getPassword().equals(dto.getPassword())) {
-                userName = dto.getUsername();
+                admin=search;
                 return true;
             }
         }
         return false;
     }
-
 
 }
 

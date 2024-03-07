@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.AdminBO;
+import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.dto.AdminDto;
 
 import java.io.IOException;
@@ -55,16 +56,21 @@ public class AdminLoginFormController {
 
         if (!isAdminExist){
             new Alert(Alert.AlertType.ERROR, "Invalid Username or Password").show();
-
-
             //Highlight Fields
             txtUsername.getStyleClass().add("mfx-text-field-error");
             txtPassword.getStyleClass().add("mfx-text-field-error");
-
             return;
         }
+
+        //Clear Fields
+        clearFields();
         //Open the Dashboard
         openDashboard();
+    }
+
+    private void clearFields() {
+        txtUsername.clear();
+        txtPassword.clear();
     }
 
     private void openDashboard() throws IOException {

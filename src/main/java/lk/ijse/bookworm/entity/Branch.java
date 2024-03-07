@@ -16,8 +16,8 @@ public class Branch {
     @Column(name = "branch_name")
     private String branchName;
 
-    @Column(name = "branch_location")
-    private String branchLocation;
+    @Column(name = "branch_address")
+    private String branchAddress;
 
     @ManyToOne
     @JoinColumn(name = "username",referencedColumnName = "username")
@@ -30,12 +30,11 @@ public class Branch {
     public Branch() {
     }
 
-    public Branch(String branchID, String branchName, String branchLocation, Admin admin, List<Book> books) {
+    public Branch(String branchID, String branchName, String branchAddress, Admin admin) {
         this.branchID = branchID;
         this.branchName = branchName;
-        this.branchLocation = branchLocation;
+        this.branchAddress = branchAddress;
         this.admin = admin;
-        this.books = books;
     }
 
     public String getBranchID() {
@@ -54,12 +53,12 @@ public class Branch {
         this.branchName = branchName;
     }
 
-    public String getBranchLocation() {
-        return branchLocation;
+    public String getBranchAddress() {
+        return branchAddress;
     }
 
-    public void setBranchLocation(String branchLocation) {
-        this.branchLocation = branchLocation;
+    public void setBranchAddress(String branchAddress) {
+        this.branchAddress = branchAddress;
     }
 
     public Admin getAdmin() {
@@ -69,26 +68,5 @@ public class Branch {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
-    @Override
-    public String toString() {
-        return "Branch{" +
-                "branchID='" + branchID + '\'' +
-                ", branchName='" + branchName + '\'' +
-                ", branchLocation='" + branchLocation + '\'' +
-                ", admin=" + admin +
-                ", books=" + books +
-                '}';
-    }
-
-
 }
 

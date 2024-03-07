@@ -8,6 +8,8 @@ import lk.ijse.bookworm.entity.Admin;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
 
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
 
@@ -44,5 +46,9 @@ public class Test {
 
 
     }
+
+
+
+
 }
 

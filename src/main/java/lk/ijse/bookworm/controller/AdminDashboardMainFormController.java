@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 
 import java.io.IOException;
 
@@ -43,6 +44,10 @@ public class AdminDashboardMainFormController {
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(dashboardPane);
+
+        System.out.println(AdminBOImpl.userName);
+
+
     }
 
 
