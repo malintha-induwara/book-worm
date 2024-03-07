@@ -1,10 +1,13 @@
 package lk.ijse.bookworm.controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.UserDto;
@@ -24,11 +27,25 @@ public class UserDataFormController {
     private MFXPasswordField txtPassword;
 
 
-    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+    @FXML
+    private MFXButton btnAction;
+
 
 
     @FXML
-    void btnAdd(ActionEvent event) {
+    private Label lblAction;
+
+
+    private UserFormController userFormController;
+
+
+
+    private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+
+
+
+    @FXML
+    void  btnActionOnAction(ActionEvent event) {
 
         boolean isValidated = validateFields();
 
@@ -36,16 +53,36 @@ public class UserDataFormController {
             return;
         }
 
-        UserDto userDto = new UserDto(txtEmail.getText(),txtName.getText(),txtAddress.getText(),txtPassword.getText());
-        boolean isSaved = userBO.saveUser(userDto);
 
-        if (isSaved){
-            new Alert(Alert.AlertType.CONFIRMATION,"User Saved").show();
-            clearFields();
+        if (btnAction.getText().equals("Add")) {
+            UserDto userDto = new UserDto(txtEmail.getText(), txtName.getText(), txtAddress.getText(), txtPassword.getText());
+            boolean isSaved = userBO.saveUser(userDto);
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User Saved").show();
+                clearFields();
+                closeTheWindow();
+
+                //Load User Details
+                userFormController.loadUserDetails();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "User Doesnt Saved").show();
+            }
+        }else {
+            UserDto userDto = new UserDto(txtEmail.getText(), txtName.getText(), txtAddress.getText(), txtPassword.getText());
+            boolean isUpdated = userBO.updateUser(userDto);
+
+            if (isUpdated){
+                new Alert(Alert.AlertType.CONFIRMATION,"User Updated").show();
+
+                //Load User Details
+                userFormController.loadUserDetails();
+            }
+            else {
+                new Alert(Alert.AlertType.ERROR,"User Doesnt Updated").show();
+            }
         }
-        else {
-            new Alert(Alert.AlertType.ERROR, "User Doesnt Saved").show();
-        }
+
     }
 
     private void clearFields() {
@@ -101,8 +138,41 @@ public class UserDataFormController {
 
     @FXML
     void btnCancel(ActionEvent event) {
-
+        closeTheWindow();
     }
+
+    private void closeTheWindow() {
+        Stage userDataStage= (Stage) txtName.getScene().getWindow();
+        userDataStage.close();
+    }
+
+
+    public void setUserFormController(UserFormController userFormController) {
+        this.userFormController = userFormController;
+    }
+
+    public void loadUserData(String email){
+        UserDto userDto = userBO.searchUser(email);
+        setFields(userDto);
+    }
+
+    public void setBtnAndLblName(String action){
+        btnAction.setText(action);
+        lblAction.setText(action + " User");
+    }
+
+
+    private void setFields(UserDto userDto){
+        txtEmail.setText(userDto.getEmail());
+        txtName.setText(userDto.getName());
+        txtAddress.setText(userDto.getAddress());
+        txtPassword.setText(userDto.getPassword());
+
+        //Disable Email Field
+        txtEmail.setEditable(false);
+    }
+
+
 
 }
 

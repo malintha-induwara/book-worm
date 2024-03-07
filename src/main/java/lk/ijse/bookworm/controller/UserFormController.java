@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -50,7 +51,8 @@ public class UserFormController {
         loadUserDetails();
     }
 
-    private void loadUserDetails() {
+    public void loadUserDetails() {
+        tblUser.getItems().clear();
         userBO.getAllUsers().forEach(userDto -> {
             tblUser.getItems().add(new UserTm(userDto.getName(),userDto.getEmail(),userDto.getAddress()));
         });
@@ -76,10 +78,16 @@ public class UserFormController {
                     {
                         btn.setOnAction(event -> {
                             UserTm tm = getTableView().getItems().get(getIndex());
+                            boolean isDeleted = userBO.deleteUser(tm.getEmail());
 
-                            boolean b = userBO.deleteUser(tm.getEmail());
-                            System.out.println(b);
-                            System.out.println(tm.getEmail());
+                            //Alert
+                            if (isDeleted){
+                                new Alert(Alert.AlertType.CONFIRMATION,"User Deleted").show();
+                            }
+                            else {
+                                new Alert(Alert.AlertType.ERROR, "User Doesnt Deleted").show();
+                            }
+
 
                             tblUser.getItems().remove(getIndex());
                         });
@@ -119,9 +127,14 @@ public class UserFormController {
                     {
                         btn.setOnAction(event -> {
                             UserTm tm = getTableView().getItems().get(getIndex());
-                            System.out.println(tm.getEmail());
 
-                            tblUser.getItems().remove(getIndex());
+                            //Catch the exception
+                            try {
+                                updateOnAction(tm.getEmail());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+
                         });
 
                         btn.getStyleClass().add("mfx-button-update");
@@ -149,7 +162,15 @@ public class UserFormController {
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/UserDataForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/userDataForm.fxml"));
+        Parent rootNode = loader.load();
+
+        UserDataFormController userDataFormController = loader.getController();
+        userDataFormController.setUserFormController(this);
+        //Set Button Name
+        userDataFormController.setBtnAndLblName("Add");
+
+
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -157,5 +178,24 @@ public class UserFormController {
         stage.setTitle("Add User");
         stage.show();
     }
+
+    private void updateOnAction(String email) throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/userDataForm.fxml"));
+        Parent rootNode = loader.load();
+
+        UserDataFormController userDataFormController = loader.getController();
+        userDataFormController.setUserFormController(this);
+        //Set Button Name
+        userDataFormController.setBtnAndLblName("Update");
+        userDataFormController.loadUserData(email);
+
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Update User");
+        stage.show();
+    }
+
 }
 
