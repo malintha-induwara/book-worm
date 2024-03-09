@@ -44,10 +44,6 @@ public class AdminDashboardMainFormController {
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(dashboardPane);
-
-        System.out.println(AdminBOImpl.userName);
-
-
     }
 
 

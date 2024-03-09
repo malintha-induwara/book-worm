@@ -6,12 +6,30 @@ import lk.ijse.bookworm.dao.custom.AdminDAO;
 import lk.ijse.bookworm.dto.AdminDto;
 import lk.ijse.bookworm.entity.Admin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AdminBOImpl implements AdminBO {
 
 
     public static Admin admin;
 
     AdminDAO adminDAO =(AdminDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ADMIN);
+
+
+
+    @Override
+    public List<AdminDto> getAllAdmin() {
+        List<AdminDto> adminList = new ArrayList<>();
+
+        for (Admin admin : adminDAO.getAll()) {
+            adminList.add(new AdminDto(
+                    admin.getUsername(),
+                    admin.getPassword()));
+        }
+
+        return adminList;
+    }
 
 
     @Override
@@ -28,6 +46,7 @@ public class AdminBOImpl implements AdminBO {
     public boolean deleteAdmin(String id) {
         return adminDAO.delete(id);
     }
+
 
     @Override
     public boolean isAdminExist(AdminDto dto) {

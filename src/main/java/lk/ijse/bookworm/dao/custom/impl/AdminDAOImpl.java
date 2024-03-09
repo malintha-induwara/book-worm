@@ -6,13 +6,19 @@ import lk.ijse.bookworm.entity.User;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class AdminDAOImpl implements AdminDAO {
     @Override
     public List<Admin> getAll() {
-        return null;
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        String sql = "FROM Admin";
+        Query query = session.createQuery(sql);
+        List<Admin> adminList = query.list();
+        session.close();
+        return adminList;
     }
 
     @Override
