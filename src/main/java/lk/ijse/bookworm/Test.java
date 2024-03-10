@@ -5,8 +5,10 @@ import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.UserDto;
 import lk.ijse.bookworm.entity.Admin;
+import lk.ijse.bookworm.entity.Branch;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.Scanner;
 
@@ -39,9 +41,13 @@ public class Test {
 
 
         Session session = SessionFactoryConfig.getInstance().getSession();
-        Admin admin = new Admin("maxverstappen", "hello");
-        boolean contains = session.contains(admin);
-        System.out.println(contains);
+        Transaction transaction = session.beginTransaction();
+        Branch branch = session.get(Branch.class, "bras");
+        System.out.println(branch.getBranchAddress());
+        session.delete(branch);
+
+        transaction.commit();
+
         session.close();
 
 

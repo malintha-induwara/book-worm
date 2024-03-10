@@ -17,7 +17,7 @@ public class Admin {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER ,mappedBy = "admin")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER ,mappedBy = "admin")
     private List<Branch> branch= new ArrayList<>();
 
 

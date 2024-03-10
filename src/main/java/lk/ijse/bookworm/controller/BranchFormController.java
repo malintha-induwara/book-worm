@@ -17,7 +17,6 @@ import javafx.util.Callback;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.BranchBO;
 import lk.ijse.bookworm.tm.BranchTm;
-import lk.ijse.bookworm.tm.UserTm;
 
 import java.io.IOException;
 
@@ -75,7 +74,9 @@ public class BranchFormController {
                     {
                         btn.setOnAction(event -> {
                             BranchTm tm = getTableView().getItems().get(getIndex());
-                            boolean isDeleted = branchBO.deleteBranch(tm.getBranchID());
+
+                            System.out.println(tm.getBranchId());
+                            boolean isDeleted = branchBO.deleteBranch(tm.getBranchId());
 
                             //Alert
                             if (isDeleted){
@@ -84,7 +85,6 @@ public class BranchFormController {
                             else {
                                 new Alert(Alert.AlertType.ERROR, "User Doesnt Deleted").show();
                             }
-
 
                             tblBranch.getItems().remove(getIndex());
                         });
@@ -124,10 +124,9 @@ public class BranchFormController {
                     {
                         btn.setOnAction(event -> {
                             BranchTm tm = getTableView().getItems().get(getIndex());
-
                             //Catch the exception
                             try {
-                                updateOnAction(tm.getBranchID());
+                                updateOnAction(tm.getBranchId());
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
@@ -159,8 +158,15 @@ public class BranchFormController {
 
 
     public void loadAllBranches() {
-
-
+        tblBranch.getItems().clear();
+        branchBO.getAllBranch().forEach(branchDto -> {
+            tblBranch.getItems().add(new BranchTm(
+                    branchDto.getBranchID(),
+                    branchDto.getBranchName(),
+                    branchDto.getAddress(),
+                    branchDto.getAdminID()
+            ));
+        });
     }
 
 
@@ -191,7 +197,7 @@ public class BranchFormController {
 
 
     private void updateOnAction(String branchId) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/userDataForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/branchDataForm.fxml"));
         Parent rootNode = loader.load();
 
         BranchDataFormController branchDataFormController = loader.getController();

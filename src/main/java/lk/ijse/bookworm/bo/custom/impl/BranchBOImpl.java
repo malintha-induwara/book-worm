@@ -15,7 +15,7 @@ public class BranchBOImpl implements BranchBO {
 
 
     @Override
-    public List<BranchDto> getAllUsers() {
+    public List<BranchDto> getAllBranch() {
 
         List<BranchDto> branchDtoList = new ArrayList<>();
         for (Branch branch:branchDAO.getAll()){

@@ -1,28 +1,28 @@
 package lk.ijse.bookworm.tm;
 
 public class BranchTm {
-    private String branchID;
+    private String branchId;
     private String branchName;
-    private String address;
+    private String branchAddress;
 
-    private String adminID;
+    private String adminName;
 
     public BranchTm() {
     }
 
-    public BranchTm(String branchID, String branchName, String address, String adminID) {
-        this.branchID = branchID;
+    public BranchTm(String branchId, String branchName, String branchAddress, String adminName) {
+        this.branchId = branchId;
         this.branchName = branchName;
-        this.address = address;
-        this.adminID = adminID;
+        this.branchAddress = branchAddress;
+        this.adminName = adminName;
     }
 
-    public String getBranchID() {
-        return branchID;
+    public String getBranchId() {
+        return branchId;
     }
 
-    public void setBranchID(String branchID) {
-        this.branchID = branchID;
+    public void setBranchId(String branchId) {
+        this.branchId = branchId;
     }
 
     public String getBranchName() {
@@ -33,30 +33,20 @@ public class BranchTm {
         this.branchName = branchName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getBranchAddress() {
+        return branchAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setBranchAddress(String branchAddress) {
+        this.branchAddress = branchAddress;
     }
 
-    public String getAdminID() {
-        return adminID;
+    public String getAdminName() {
+        return adminName;
     }
 
-    public void setAdminID(String adminID) {
-        this.adminID = adminID;
-    }
-
-    @Override
-    public String toString() {
-        return "BranchTm{" +
-                "branchID='" + branchID + '\'' +
-                ", branchName='" + branchName + '\'' +
-                ", address='" + address + '\'' +
-                ", adminID='" + adminID + '\'' +
-                '}';
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
 }
 
