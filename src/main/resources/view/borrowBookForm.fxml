@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="borrowBookPane" prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BorrowBookFormController">
-
+<AnchorPane fx:id="borrowBookPane" prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BorrowBookFormController">
+   <children>
+      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Borrow Books">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <MFXComboBox fx:id="cmbUserID" floatMode="ABOVE" floatingText="User ID" layoutX="27.0" layoutY="139.0" prefHeight="42.0" prefWidth="175.0" />
+      <MFXComboBox fx:id="cmbBookID" floatMode="ABOVE" floatingText="Book ID" layoutX="242.0" layoutY="139.0" prefHeight="42.0" prefWidth="175.0" />
+      <MFXButton layoutX="532.0" layoutY="140.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PageStyles.css" text="Add">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </MFXButton>
+      <TableView fx:id="tblBranch" focusTraversable="false" layoutX="28.0" layoutY="204.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="62.0" style="-fx-alignment: center;" text="ID" />
+            <TableColumn fx:id="colUserID" prefWidth="95.0" style="-fx-alignment: center;" text="UserID" />
+            <TableColumn fx:id="colBookID" prefWidth="117.0" style="-fx-alignment: center;" text="BookID" />
+            <TableColumn fx:id="colBorrowDate" prefWidth="130.0" style="-fx-alignment: center;" text="Borrow Date" />
+            <TableColumn fx:id="colReturnDate" prefWidth="157.0" style="-fx-alignment: center;" text="Return Date" />
+            <TableColumn fx:id="colIsReturned" prefWidth="99.0" style="-fx-alignment: center;" text="Returned" />
+            <TableColumn fx:id="colRemove" prefWidth="88.0" style="-fx-alignment: center;" text="Remove" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
