@@ -79,7 +79,6 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
     @Override
     public BookTransactions search(String id) {
         Session session = SessionFactoryConfig.getInstance().getSession();
-
         try {
             BookTransactions bookTransactions = session.get(BookTransactions.class, id);
             return bookTransactions;

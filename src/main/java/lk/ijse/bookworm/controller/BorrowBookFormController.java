@@ -5,10 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.tm.BorrowBookTm;
 
 public class BorrowBookFormController {
 
@@ -23,28 +25,28 @@ public class BorrowBookFormController {
     private MFXComboBox<String> cmbUserID;
 
     @FXML
-    private TableColumn<?, ?> colBookID;
+    private TableColumn<BorrowBookTm, String> colBookID;
 
     @FXML
-    private TableColumn<?, ?> colBorrowDate;
+    private TableColumn<BorrowBookTm, String> colBorrowDate;
 
     @FXML
-    private TableColumn<?, ?> colID;
+    private TableColumn<BorrowBookTm, String> colID;
 
     @FXML
-    private TableColumn<?, ?> colIsReturned;
+    private TableColumn<BorrowBookTm, String> colIsReturned;
 
     @FXML
-    private TableColumn<?, ?> colRemove;
+    private TableColumn<BorrowBookTm, String> colRemove;
 
     @FXML
-    private TableColumn<?, ?> colReturnDate;
+    private TableColumn<BorrowBookTm, String> colReturnDate;
 
     @FXML
-    private TableColumn<?, ?> colUserID;
+    private TableColumn<BorrowBookTm, String> colUserID;
 
     @FXML
-    private TableView<?> tblBorrowBook;
+    private TableView<BorrowBookTm> tblBorrowBook;
 
 
     UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
@@ -54,6 +56,23 @@ public class BorrowBookFormController {
     public void initialize() {
         loadUserIds();
         loadBookIds();
+
+        setCellValueFactory();
+
+    }
+
+    private void setCellValueFactory() {
+
+        colID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colUserID.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        colBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colBorrowDate.setCellValueFactory(new PropertyValueFactory<>("borrowDate"));
+        colReturnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+
+
+
+
+
 
 
 
@@ -76,8 +95,43 @@ public class BorrowBookFormController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
+        boolean isValidated = validateFields();
+
+        if (!isValidated) {
+            return;
+        }
+
+
+
+
+
+
+
     }
 
+    private boolean validateFields() {
+
+        boolean isUserIdEmpty = cmbUserID.getText().isEmpty();
+
+        if (isUserIdEmpty) {
+            cmbUserID.requestFocus();
+            cmbUserID.getStyleClass().add("mfx-combo-box-error");
+            return false;
+        }
+
+        cmbUserID.getStyleClass().remove("mfx-combo-box-error");
+
+
+        boolean isBookIdEmpty = cmbBookID.getText().isEmpty();
+        if (isBookIdEmpty) {
+            cmbBookID.requestFocus();
+            cmbBookID.getStyleClass().add("mfx-combo-box-error");
+            return false;
+        }
+        cmbBookID.getStyleClass().remove("mfx-combo-box-error");
+
+        return true;
+    }
 
 
 }
