@@ -5,7 +5,10 @@ package lk.ijse.bookworm.entity;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "book_transaction")
@@ -17,9 +20,11 @@ public class BookTransactions {
     private int transactionId;
 
     @CreationTimestamp
-    private Timestamp borrowDate;
+    private LocalDate borrowDate;
 
-    private Timestamp returnDate;
+    private LocalDate returnDate;
+
+    boolean isReturned;
 
     @ManyToOne
     @JoinColumn(name = "book_id",nullable = false)
@@ -33,7 +38,8 @@ public class BookTransactions {
     public BookTransactions() {
     }
 
-    public BookTransactions(Book book, User user) {
+    public BookTransactions(Book book, User user,LocalDate returnDate) {
+        this.returnDate = returnDate;
         this.book = book;
         this.user = user;
     }
@@ -42,24 +48,33 @@ public class BookTransactions {
         return transactionId;
     }
 
+
     public void setTransactionId(int transactionId) {
         this.transactionId = transactionId;
     }
 
-    public Timestamp getBorrowDate() {
+    public LocalDate getBorrowDate() {
         return borrowDate;
     }
 
-    public void setBorrowDate(Timestamp borrowDate) {
+    public void setBorrowDate(LocalDate borrowDate) {
         this.borrowDate = borrowDate;
     }
 
-    public Timestamp getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Timestamp returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public boolean isReturned() {
+        return isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        isReturned = returned;
     }
 
     public Book getBook() {

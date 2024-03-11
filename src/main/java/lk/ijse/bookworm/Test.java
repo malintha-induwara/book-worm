@@ -2,24 +2,21 @@ package lk.ijse.bookworm;
 
 
 import lk.ijse.bookworm.bo.BOFactory;
-import lk.ijse.bookworm.bo.custom.AdminBO;
-import lk.ijse.bookworm.bo.custom.BookBO;
-import lk.ijse.bookworm.bo.custom.BranchBO;
-import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.bo.custom.*;
 import lk.ijse.bookworm.dao.DAOFactory;
 import lk.ijse.bookworm.dao.custom.BookDAO;
 import lk.ijse.bookworm.dao.custom.UserDAO;
-import lk.ijse.bookworm.dto.AdminDto;
-import lk.ijse.bookworm.dto.BookDto;
-import lk.ijse.bookworm.dto.BranchDto;
-import lk.ijse.bookworm.dto.UserDto;
+import lk.ijse.bookworm.dto.*;
 import lk.ijse.bookworm.embeddad.BookTransactionsPK;
 import lk.ijse.bookworm.entity.*;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.Phaser;
 
 public class Test {
     public static void main(String[] args) {
@@ -56,31 +53,46 @@ public class Test {
 //        bookTransactions.setBookTransactionsPK(bookTransactionsPK);
 //
 //
+
+
+//
 //        User user = new User("U001", "Kasun", "Galle","123");
 //
 //        userDAO.save(user);
 
 
-        User user = userDAO.search("U001");
-        Book book = bookDAO.search("B003");
-
-        System.out.println(user.getAddress());
-        System.out.println(book.getAuthor());
-
-
-        BookTransactions bookTransactions = new BookTransactions(book,user);
-
-
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(bookTransactions);
-        transaction.commit();
-        session.close();
+//        User user = userDAO.search("U001");
+//        Book book = bookDAO.search("B003");
+//
+//        System.out.println(user.getAddress());
+//        System.out.println(book.getAuthor());
+//
+//
+//        String date = "2021-08-20";
+//        LocalDate localDate = LocalDate.parse(date);
+//
+//        BookTransactions bookTransactions = new BookTransactions(book,user,localDate);
 
 
+//        Session session = SessionFactoryConfig.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//        session.save(bookTransactions);
+//        transaction.commit();
+//        session.close();
+//
 
 
-
+//        BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
+//      //  BorrowBookDto dto = new BorrowBookDto("U001", "B003", "2021-08-20", "2021-08-25");
+//
+//
+//      //  System.out.println(bookTransactionBO.saveBorrowedBook(dto));
+//
+//
+//        //System.out.println(bookTransactionBO.updateBorrowedBook("3"));
+//
+//
+//        bookTransactionBO.deleteBorrowedBook("3");
 
 
 

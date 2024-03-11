@@ -24,6 +24,13 @@ public class BorrowBookDto {
         this.returnDate = returnDate;
     }
 
+    public BorrowBookDto(String userId, String bookId, String borrowDate, String returnDate) {
+        this.userId = userId;
+        this.bookId = bookId;
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
+    }
+
     public String getId() {
         return id;
     }

@@ -1,6 +1,7 @@
 package lk.ijse.bookworm.dao.custom.impl;
 
 import lk.ijse.bookworm.dao.custom.BookTransactionDAO;
+import lk.ijse.bookworm.entity.Book;
 import lk.ijse.bookworm.entity.BookTransactions;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
@@ -29,7 +30,10 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
         Transaction transaction = session.beginTransaction();
 
         try {
+            //Save in the book Transaction Table
             session.save(entity);
+            //Update the Book Table
+            session.update(entity.getBook());
             transaction.commit();
             return true;
         }catch (Exception e) {
@@ -45,7 +49,10 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
+            //Update the Book Transaction Table
             session.update(entity);
+            //Update the Book Table
+            session.update(entity.getBook());
             transaction.commit();
             return true;
         }
@@ -63,8 +70,17 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            BookTransactions bookTransactions = session.get(BookTransactions.class, id);
+
+            BookTransactions bookTransactions = session.get(BookTransactions.class, Integer.parseInt(id));
+            //Update the Book Table
+            Book book = bookTransactions.getBook();
+            book.setAvailable(true);
+
+            session.update(book);
+
+            //Delete from the Book Transaction Table
             session.delete(bookTransactions);
+
             transaction.commit();
             return true;
         }catch (Exception e) {
@@ -80,7 +96,7 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
     public BookTransactions search(String id) {
         Session session = SessionFactoryConfig.getInstance().getSession();
         try {
-            BookTransactions bookTransactions = session.get(BookTransactions.class, id);
+            BookTransactions bookTransactions = session.get(BookTransactions.class, Integer.parseInt(id));
             return bookTransactions;
         }
         catch (Exception e) {

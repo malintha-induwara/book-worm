@@ -1,6 +1,7 @@
 package lk.ijse.bookworm.controller;
 
 import io.github.palexdev.materialfx.controls.MFXComboBox;
+import io.github.palexdev.materialfx.controls.MFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -46,6 +47,10 @@ public class BorrowBookFormController {
     private TableColumn<BorrowBookTm, String> colUserID;
 
     @FXML
+    private MFXDatePicker dpReturnDate;
+
+
+    @FXML
     private TableView<BorrowBookTm> tblBorrowBook;
 
 
@@ -56,7 +61,6 @@ public class BorrowBookFormController {
     public void initialize() {
         loadUserIds();
         loadBookIds();
-
         setCellValueFactory();
 
     }
