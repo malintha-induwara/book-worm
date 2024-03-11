@@ -5,20 +5,31 @@ public class BookDto {
     private String author;
     private String genre;
     private String title;
-    private String branchId;
+    private boolean availability;
 
+    private String branchID;
 
     public BookDto() {
     }
 
-    public BookDto(String bookId, String author, String genre, String title, String branchId) {
+
+    public BookDto(String bookId, String author, String genre, String title, String branchID) {
         this.bookId = bookId;
         this.author = author;
         this.genre = genre;
         this.title = title;
-        this.branchId = branchId;
+        this.branchID = branchID;
     }
 
+
+    public BookDto(String bookId, String author, String genre, String title, boolean availability, String branchID) {
+        this.bookId = bookId;
+        this.author = author;
+        this.genre = genre;
+        this.title = title;
+        this.availability = availability;
+        this.branchID = branchID;
+    }
 
     public String getBookId() {
         return bookId;
@@ -52,12 +63,20 @@ public class BookDto {
         this.title = title;
     }
 
-    public String getBranchId() {
-        return branchId;
+    public boolean isAvailability() {
+        return availability;
     }
 
-    public void setBranchId(String branchId) {
-        this.branchId = branchId;
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+    public String getBranchID() {
+        return branchID;
+    }
+
+    public void setBranchID(String branchID) {
+        this.branchID = branchID;
     }
 }
 

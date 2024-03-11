@@ -64,6 +64,7 @@ public class BookDAOImpl implements BookDAO {
             transaction.commit();
             return true;
         }catch (Exception e){
+            e.printStackTrace();
             transaction.rollback();
             return false;
         }finally {

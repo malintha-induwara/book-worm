@@ -23,7 +23,7 @@ public class Branch {
     @JoinColumn(name = "username",referencedColumnName = "username")
     private Admin admin;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER ,mappedBy = "branch")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER ,mappedBy = "branch")
     private List<Book> books = new ArrayList<>();
 
 

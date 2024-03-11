@@ -26,7 +26,7 @@ public class Book {
     private boolean available;
 
     @ManyToOne
-    @JoinColumn(name = "branch_id",referencedColumnName = "branch_id")
+    @JoinColumn(name = "branch_id",referencedColumnName = "branch_id",nullable = false)
     private Branch branch;
 
 
