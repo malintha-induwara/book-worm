@@ -1,7 +1,7 @@
 package lk.ijse.bookworm.entity;
 
 
-import lk.ijse.bookworm.embeddad.BookTransactionsPK;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -11,19 +11,22 @@ import java.sql.Timestamp;
 @Table(name = "book_transaction")
 public class BookTransactions {
 
-    @EmbeddedId
-    private BookTransactionsPK bookTransactionsPK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "transaction_Id")
+    private int transactionId;
+
     @CreationTimestamp
     private Timestamp borrowDate;
 
     private Timestamp returnDate;
 
     @ManyToOne
-    @JoinColumn(name = "book_id",insertable = false,updatable = false)
+    @JoinColumn(name = "book_id",nullable = false)
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "email",insertable = false,updatable = false)
+    @JoinColumn(name = "email",nullable = false)
     private User user;
 
 
@@ -35,12 +38,12 @@ public class BookTransactions {
         this.user = user;
     }
 
-    public BookTransactionsPK getBookTransactionsPK() {
-        return bookTransactionsPK;
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setBookTransactionsPK(BookTransactionsPK bookTransactionsPK) {
-        this.bookTransactionsPK = bookTransactionsPK;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public Timestamp getBorrowDate() {
@@ -73,17 +76,6 @@ public class BookTransactions {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "BookTransactions{" +
-                "bookTransactionsPK=" + bookTransactionsPK +
-                ", borrowDate=" + borrowDate +
-                ", returnDate=" + returnDate +
-                ", book=" + book +
-                ", user=" + user +
-                '}';
     }
 }
 

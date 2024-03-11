@@ -30,21 +30,21 @@ public class Test {
 //        System.out.println(adminBO.saveAdmin(admin));
 //
 //
-        BranchBO branchBO = (BranchBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BRANCH);
-        BranchDto branchDto = new BranchDto("B001", "Panadura", "Panadura", "kasun");
-        System.out.println(branchBO.saveBranch(branchDto));
+//        BranchBO branchBO = (BranchBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BRANCH);
+//        BranchDto branchDto = new BranchDto("B001", "Panadura", "Panadura", "kasun");
+//        System.out.println(branchBO.saveBranch(branchDto));
+//
+//
+//        BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
+//        BookDto dto = new BookDto("B003", "Kasun", "Horror", "The Ring",true, "B001");
+//        System.out.println(bookBO.saveBook(dto));
 
 
-        BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
-        BookDto dto = new BookDto("B003", "Kasun", "Horror", "The Ring",true, "B001");
-        System.out.println(bookBO.saveBook(dto));
-
-
-//        UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
+        UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
 //
 //        User user = userDAO.search("U001");
 //
-//        BookDAO bookDAO = (BookDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BOOK);
+        BookDAO bookDAO = (BookDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BOOK);
 //
 //        Book book = bookDAO.search("B003");
 
@@ -56,14 +56,35 @@ public class Test {
 //        bookTransactions.setBookTransactionsPK(bookTransactionsPK);
 //
 //
-//        Session session = SessionFactoryConfig.getInstance().getSession();
-//        Transaction transaction = session.beginTransaction();
+//        User user = new User("U001", "Kasun", "Galle","123");
 //
-//        session.save(bookTransactions);
-//
-//        transaction.commit();
-//
-//        session.close();
+//        userDAO.save(user);
+
+
+        User user = userDAO.search("U001");
+        Book book = bookDAO.search("B003");
+
+        System.out.println(user.getAddress());
+        System.out.println(book.getAuthor());
+
+
+        BookTransactions bookTransactions = new BookTransactions(book,user);
+
+
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(bookTransactions);
+        transaction.commit();
+        session.close();
+
+
+
+
+
+
+
+
+
 
     }
 
