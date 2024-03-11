@@ -5,10 +5,13 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BranchBO;
+import lk.ijse.bookworm.dto.BookDto;
 import lk.ijse.bookworm.dto.BranchDto;
 
 import java.util.List;
@@ -43,6 +46,8 @@ public class BookDataFormController {
 
     BranchBO branchBO = (BranchBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BRANCH);
 
+    BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
+
 
     public void initialize(){
         loadBranches();
@@ -73,11 +78,43 @@ public class BookDataFormController {
             return;
         }
 
+        if (btnAction.getText().equals("Add")){
+            BookDto dto = new BookDto(txtBookId.getText(),txtAuthor.getText(),txtGenre.getText(),txtTitle.getText(),true,colBranch.getValue());
+            boolean isSaved = bookBO.saveBook(dto);
+
+            if (isSaved){
+                new Alert(Alert.AlertType.INFORMATION,"Book Added Successfully").show();
+                bookFormController.loadAllBooks();
+
+                clearFields();
+                closeTheWindow();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Book Added Failed").show();
+            }
+
+        }else {
+            BookDto dto = new BookDto(txtBookId.getText(),txtAuthor.getText(),txtGenre.getText(),txtTitle.getText(),colBranch.getValue());
+            boolean isUpdated = bookBO.updateBook(dto);
+
+            if (isUpdated){
+                new Alert(Alert.AlertType.INFORMATION,"Book Updated Successfully").show();
+                bookFormController.loadAllBooks();
+
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Book Updated Failed").show();
+            }
+        }
 
 
 
+    }
 
-
+    private void clearFields() {
+        txtBookId.clear();
+        txtAuthor.clear();
+        txtGenre.clear();
+        txtTitle.clear();
+        colBranch.getSelectionModel().clearSelection();
     }
 
     private boolean validateFields() {
@@ -140,8 +177,19 @@ public class BookDataFormController {
     }
 
     public void loadBookData(String bookId) {
+        BookDto bookDto = bookBO.searchBook(bookId);
+        setFields(bookDto);
+    }
+
+    private void setFields(BookDto bookDto) {
+        txtBookId.setText(bookDto.getBookId());
+        txtAuthor.setText(bookDto.getAuthor());
+        txtGenre.setText(bookDto.getGenre());
+        txtTitle.setText(bookDto.getTitle());
+        colBranch.setValue(bookDto.getBranchID());
 
 
+        txtBookId.setEditable(false);
     }
 }
 

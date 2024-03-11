@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BookFormController">
+<AnchorPane prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BookFormController">
    <children>
       <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Book">
          <font>
@@ -25,15 +25,15 @@
             </ImageView>
          </graphic>
       </MFXButton>
-      <TableView focusTraversable="false" layoutX="27.0" layoutY="197.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
+      <TableView fx:id="tblBook" focusTraversable="false" layoutX="27.0" layoutY="197.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
         <columns>
-          <TableColumn prefWidth="60.0" text="ID" />
-          <TableColumn prefWidth="171.0" text="Title" />
-            <TableColumn prefWidth="170.0" text="Author" />
-            <TableColumn prefWidth="110.0" text="Genre" />
-            <TableColumn prefWidth="76.0" text="AV" />
-            <TableColumn text="Update" />
-            <TableColumn text="Remove" />
+          <TableColumn fx:id="colId" prefWidth="68.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="colTitle" prefWidth="163.0" style="-fx-alignment: center;" text="Title" />
+            <TableColumn fx:id="colAuthor" prefWidth="170.0" style="-fx-alignment: center;" text="Author" />
+            <TableColumn fx:id="colGenre" prefWidth="110.0" style="-fx-alignment: center;" text="Genre" />
+            <TableColumn fx:id="colAvailability" prefWidth="76.0" style="-fx-alignment: center;" text="AV" />
+            <TableColumn fx:id="colUpdate" style="-fx-alignment: center;" text="Update" />
+            <TableColumn fx:id="colRemove" style="-fx-alignment: center;" text="Remove" />
         </columns>
       </TableView>
    </children>

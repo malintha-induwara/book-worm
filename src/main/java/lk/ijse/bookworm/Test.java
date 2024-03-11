@@ -2,14 +2,19 @@ package lk.ijse.bookworm;
 
 
 import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.AdminBO;
 import lk.ijse.bookworm.bo.custom.BookBO;
+import lk.ijse.bookworm.bo.custom.BranchBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dao.DAOFactory;
 import lk.ijse.bookworm.dao.custom.BookDAO;
+import lk.ijse.bookworm.dao.custom.UserDAO;
+import lk.ijse.bookworm.dto.AdminDto;
 import lk.ijse.bookworm.dto.BookDto;
+import lk.ijse.bookworm.dto.BranchDto;
 import lk.ijse.bookworm.dto.UserDto;
-import lk.ijse.bookworm.entity.Admin;
-import lk.ijse.bookworm.entity.Branch;
+import lk.ijse.bookworm.embeddad.BookTransactionsPK;
+import lk.ijse.bookworm.entity.*;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,57 +24,46 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
 
+
+//        AdminBO adminBO = (AdminBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.ADMIN);
+//        AdminDto admin = new AdminDto( "kasun", "1234");
+//        System.out.println(adminBO.saveAdmin(admin));
 //
-//        UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
-////
-//        boolean wadeharida = userBO.saveUser();
-
-//        System.out.println(wadeharida);
-
-      //  System.out.println(userBO.searchUser("U001"));
-
 //
-//        UserDto userDto = new UserDto("helsssslo@gmail.com", "Kasun", "Panadura", "1234");
+        BranchBO branchBO = (BranchBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BRANCH);
+        BranchDto branchDto = new BranchDto("B001", "Panadura", "Panadura", "kasun");
+        System.out.println(branchBO.saveBranch(branchDto));
+
+
+        BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
+        BookDto dto = new BookDto("B003", "Kasun", "Horror", "The Ring",true, "B001");
+        System.out.println(bookBO.saveBook(dto));
+
+
+//        UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
 //
-//        boolean b = userBO.updateUser(userDto);
-//        System.out.println(b);
-
+//        User user = userDAO.search("U001");
 //
-//        for (UserDto allUser : userBO.getAllUsers()) {
-//            System.out.println(allUser);
-//        }
+//        BookDAO bookDAO = (BookDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BOOK);
+//
+//        Book book = bookDAO.search("B003");
 
-
-//        boolean deleted = userBO.deleteUser("U001");
-//        System.out.println(deleted);
-
-
+//        BookTransactionsPK bookTransactionsPK = new BookTransactionsPK();
+//        bookTransactionsPK.setBookId(book.getBookID());
+//        bookTransactionsPK.setUserId(user.getEmail());
+//
+//        BookTransactions bookTransactions = new BookTransactions(book, user);
+//        bookTransactions.setBookTransactionsPK(bookTransactionsPK);
+//
+//
 //        Session session = SessionFactoryConfig.getInstance().getSession();
 //        Transaction transaction = session.beginTransaction();
-//        Branch branch = session.get(Branch.class, "bras");
-//        System.out.println(branch.getBranchAddress());
-//        session.delete(branch);
+//
+//        session.save(bookTransactions);
 //
 //        transaction.commit();
 //
 //        session.close();
-
-        BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
-//        BookDto dto = new BookDto("B003", "Kasun", "Horror", "The Ring",true, "branch");
-//        bookBO.saveBook(dto);
-
-//
-//        BookDto dto1 = new BookDto("B001", "Kasun", "Horror", "The Mouse", "branch");
-//        bookBO.updateBook(dto1);
-//
-
-
-
-
-        BookDAO bookDAO = (BookDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BOOK);
-
-        System.out.println(bookDAO.delete("B001"));
-
 
     }
 

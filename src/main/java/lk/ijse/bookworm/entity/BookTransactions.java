@@ -19,21 +19,18 @@ public class BookTransactions {
     private Timestamp returnDate;
 
     @ManyToOne
-    @JoinColumn(name = "book_id",referencedColumnName = "book_id",insertable = false,updatable = false)
+    @JoinColumn(name = "book_id",insertable = false,updatable = false)
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "email",referencedColumnName = "email",insertable = false,updatable = false)
+    @JoinColumn(name = "email",insertable = false,updatable = false)
     private User user;
 
 
     public BookTransactions() {
     }
 
-    public BookTransactions(BookTransactionsPK bookTransactionsPK, Timestamp borrowDate, Timestamp returnDate, Book book, User user) {
-        this.bookTransactionsPK = bookTransactionsPK;
-        this.borrowDate = borrowDate;
-        this.returnDate = returnDate;
+    public BookTransactions(Book book, User user) {
         this.book = book;
         this.user = user;
     }

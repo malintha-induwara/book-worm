@@ -3,6 +3,8 @@ package lk.ijse.bookworm.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -29,6 +31,8 @@ public class Book {
     @JoinColumn(name = "branch_id",referencedColumnName = "branch_id",nullable = false)
     private Branch branch;
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "book")
+    private List<BookTransactions> bookTransactions = new ArrayList<>();
 
     public Book() {
     }
