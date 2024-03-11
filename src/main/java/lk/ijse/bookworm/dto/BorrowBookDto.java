@@ -12,16 +12,20 @@ public class BorrowBookDto {
 
     private String returnDate;
 
+    private boolean isReturned;
+
 
     public BorrowBookDto() {
     }
 
-    public BorrowBookDto(String id, String userId, String bookId, String borrowDate, String returnDate) {
+
+    public BorrowBookDto(String id, String userId, String bookId, String borrowDate, String returnDate, boolean isReturned) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
+        this.isReturned = isReturned;
     }
 
     public BorrowBookDto(String userId, String bookId, String borrowDate, String returnDate) {
@@ -69,6 +73,14 @@ public class BorrowBookDto {
 
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public boolean isReturned() {
+        return isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        isReturned = returned;
     }
 }
 

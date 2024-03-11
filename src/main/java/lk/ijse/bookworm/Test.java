@@ -1,6 +1,7 @@
 package lk.ijse.bookworm;
 
 
+import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.*;
 import lk.ijse.bookworm.dao.DAOFactory;
@@ -82,17 +83,20 @@ public class Test {
 //
 
 
-//        BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
-//      //  BorrowBookDto dto = new BorrowBookDto("U001", "B003", "2021-08-20", "2021-08-25");
-//
-//
-//      //  System.out.println(bookTransactionBO.saveBorrowedBook(dto));
-//
+        BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
+        BorrowBookDto dto = new BorrowBookDto("U001", "B003", "2021-08-20", "2021-08-25");
+
+
+        System.out.println(bookTransactionBO.saveBorrowedBook(dto));
+
 //
 //        //System.out.println(bookTransactionBO.updateBorrowedBook("3"));
 //
 //
 //        bookTransactionBO.deleteBorrowedBook("3");
+
+
+
 
 
 

@@ -1,5 +1,10 @@
 package lk.ijse.bookworm.tm;
 
+import io.github.palexdev.materialfx.controls.MFXCheckbox;
+import javafx.scene.Cursor;
+
+import static com.sun.javafx.css.StyleClassSet.getStyleClass;
+
 public class BorrowBookTm {
     private String id;
     private String userId;
@@ -7,9 +12,15 @@ public class BorrowBookTm {
     private String borrowDate;
     private String returnDate;
 
+    private MFXCheckbox isReturned;
 
-    public BorrowBookTm() {
+    {
+        isReturned = new MFXCheckbox();
+        isReturned.setCursor(Cursor.HAND);
+        isReturned.getStyleClass().add(".mfx-checkbox-update");
     }
+
+
     public BorrowBookTm(String id, String userId, String bookId, String borrowDate, String returnDate) {
         this.id = id;
         this.userId = userId;
@@ -17,7 +28,6 @@ public class BorrowBookTm {
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
-
 
     public String getId() {
         return id;
@@ -57,6 +67,14 @@ public class BorrowBookTm {
 
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public MFXCheckbox getIsReturned() {
+        return isReturned;
+    }
+
+    public void setIsReturned(MFXCheckbox isReturned) {
+        this.isReturned = isReturned;
     }
 }
 

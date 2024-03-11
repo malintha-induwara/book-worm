@@ -32,7 +32,8 @@ public class BookTransactionBOImpl implements BookTransactionBO {
                     bookTransactions.getUser().getEmail(),
                     bookTransactions.getBook().getBookID(),
                     String.valueOf(bookTransactions.getBorrowDate()),
-                    String.valueOf(bookTransactions.getReturnDate())
+                    String.valueOf(bookTransactions.getReturnDate()),
+                    bookTransactions.isReturned()
             ));
         }
         return borrowBookDtoList;
@@ -71,7 +72,8 @@ public class BookTransactionBOImpl implements BookTransactionBO {
                     transactions.getUser().getEmail(),
                     transactions.getBook().getBookID(),
                     String.valueOf(transactions.getBorrowDate()),
-                    String.valueOf(transactions.getReturnDate())
+                    String.valueOf(transactions.getReturnDate()),
+                    transactions.isReturned()
             );
         }
         return null;
