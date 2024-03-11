@@ -37,3 +37,13 @@
     -fx-text-fill: #ffffff;
 }
 
+.mfx-combo-box{
+    -mfx-main: #0984e3;
+}
+
+.mfx-combo-box-error{
+    -mfx-main:  #f5194d;
+}
+
+
+

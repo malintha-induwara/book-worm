@@ -2,8 +2,10 @@ package lk.ijse.bookworm.bo.custom.impl;
 
 import lk.ijse.bookworm.bo.custom.BranchBO;
 import lk.ijse.bookworm.dao.DAOFactory;
+import lk.ijse.bookworm.dao.custom.AdminDAO;
 import lk.ijse.bookworm.dao.custom.BranchDAO;
 import lk.ijse.bookworm.dto.BranchDto;
+import lk.ijse.bookworm.entity.Admin;
 import lk.ijse.bookworm.entity.Branch;
 
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.List;
 public class BranchBOImpl implements BranchBO {
 
     BranchDAO branchDAO = (BranchDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.BRANCH);
+
+    AdminDAO adminDAO = (AdminDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ADMIN);
 
 
     @Override
@@ -30,12 +34,14 @@ public class BranchBOImpl implements BranchBO {
 
     @Override
     public boolean saveBranch(BranchDto dto) {
-        return branchDAO.save(new Branch(dto.getBranchID(),dto.getBranchName(),dto.getAddress(),AdminBOImpl.admin));
+        Admin admin = adminDAO.search(dto.getAdminID());
+        return branchDAO.save(new Branch(dto.getBranchID(),dto.getBranchName(),dto.getAddress(),admin));
     }
 
     @Override
     public boolean updateBranch(BranchDto dto) {
-        return branchDAO.update(new Branch(dto.getBranchID(),dto.getBranchName(),dto.getAddress(),AdminBOImpl.admin));
+        Admin admin = adminDAO.search(dto.getAdminID());
+        return branchDAO.update(new Branch(dto.getBranchID(),dto.getBranchName(),dto.getAddress(),admin));
     }
 
     @Override

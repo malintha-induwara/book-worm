@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.BookBO;
+import lk.ijse.bookworm.bo.custom.UserBO;
 
 public class BorrowBookFormController {
 
@@ -41,7 +44,34 @@ public class BorrowBookFormController {
     private TableColumn<?, ?> colUserID;
 
     @FXML
-    private TableView<?> tblBranch;
+    private TableView<?> tblBorrowBook;
+
+
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+    BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
+
+
+    public void initialize() {
+        loadUserIds();
+        loadBookIds();
+
+
+
+    }
+
+    private void loadBookIds() {
+        bookBO.getAllBooks().forEach(dto -> {
+            cmbBookID.getItems().add(dto.getBookId());
+        });
+
+    }
+
+    private void loadUserIds() {
+        userBO.getAllUsers().forEach(dto -> {
+            cmbUserID.getItems().add(dto.getEmail());
+        });
+    }
+
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
