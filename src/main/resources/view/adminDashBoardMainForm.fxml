@@ -119,7 +119,7 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="holderPane" layoutX="221.0" prefHeight="680.0" prefWidth="804.0" />
-      <Pane layoutX="814.0" layoutY="44.0" prefHeight="65.0" prefWidth="210.0" styleClass="pane-admin-details" stylesheets="@../assets/css/DashBoardStyles.css">
+      <Pane fx:id="imgAndNameHolderPane" layoutX="814.0" layoutY="44.0" prefHeight="65.0" prefWidth="210.0" styleClass="pane-admin-details" stylesheets="@../assets/css/DashBoardStyles.css">
          <children>
             <Circle fx:id="cirAdminImage" fill="WHITE" layoutX="44.0" layoutY="33.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
             <Label fx:id="idAdminName" layoutX="94.0" layoutY="20.0" text="John Doe" />

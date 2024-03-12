@@ -41,6 +41,9 @@ public class AdminDashboardMainFormController {
     @FXML
     private MFXButton btnUser;
 
+    @FXML
+    private Pane imgAndNameHolderPane;
+
 
     @FXML
     private Circle cirAdminImage;
@@ -50,11 +53,12 @@ public class AdminDashboardMainFormController {
 
 
     public void initialize() throws IOException {
-        setAdminNameAndImage();
+        setAdminNameAndImage(true);
         loadAdminDashBoardForm();
     }
 
-    private void setAdminNameAndImage() {
+    private void setAdminNameAndImage(boolean flag) {
+        imgAndNameHolderPane.setVisible(flag);
         Platform.runLater(() -> {
             idAdminName.setText(AdminBOImpl.admin.getUsername());
             Image image = new Image(AdminBOImpl.admin.getImgUrl());
@@ -63,7 +67,10 @@ public class AdminDashboardMainFormController {
         });
     }
 
+
+
     private void loadAdminDashBoardForm() throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminDashBoardForm.fxml"));
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -72,6 +79,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnBookOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/bookForm.fxml"));
         Pane bookPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -80,6 +88,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnBorrowBookOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/borrowBookForm.fxml"));
         Pane borrowBookPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -88,6 +97,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnBranchOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/branchForm.fxml"));
         Pane borrowBookPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -96,6 +106,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminDashBoardForm.fxml"));
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -120,6 +131,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(false);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminSettingsForm.fxml"));
         Pane settingPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -129,6 +141,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
+        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userForm.fxml"));
         Pane userPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
