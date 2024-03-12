@@ -17,6 +17,8 @@ public class Admin {
     @Column(name = "password")
     private String password;
 
+    private String imgUrl;
+
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER ,mappedBy = "admin")
     private List<Branch> branch= new ArrayList<>();
 
@@ -24,9 +26,10 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String username, String password) {
+    public Admin(String username, String password, String imgUrl) {
         this.username = username;
         this.password = password;
+        this.imgUrl = imgUrl;
     }
 
     public String getUsername() {
@@ -45,21 +48,20 @@ public class Admin {
         this.password = password;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public List<Branch> getBranch() {
         return branch;
     }
 
     public void setBranch(List<Branch> branch) {
         this.branch = branch;
-    }
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", branch=" + branch +
-                '}';
     }
 }
 

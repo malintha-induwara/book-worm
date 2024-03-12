@@ -111,15 +111,6 @@ public class Test {
 
 
 
-        String borrowDate = "2021-08-20";
-        String returnDate = "2021-08-22";
-
-        LocalDate borrowLocalDate = LocalDate.parse(borrowDate);
-        LocalDate returnLocalDate = LocalDate.parse(returnDate);
-
-        int lateCount = returnLocalDate.compareTo(borrowLocalDate);
-
-        System.out.println(lateCount);
 
 
 

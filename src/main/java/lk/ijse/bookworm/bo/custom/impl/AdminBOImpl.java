@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.bo.custom.impl;
 
+import javafx.scene.shape.Circle;
 import lk.ijse.bookworm.bo.custom.AdminBO;
 import lk.ijse.bookworm.dao.DAOFactory;
 import lk.ijse.bookworm.dao.custom.AdminDAO;
@@ -14,6 +15,9 @@ public class AdminBOImpl implements AdminBO {
 
     public static Admin admin;
 
+    public static Circle circleImg;
+
+
     AdminDAO adminDAO =(AdminDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ADMIN);
 
 
@@ -21,25 +25,23 @@ public class AdminBOImpl implements AdminBO {
     @Override
     public List<AdminDto> getAllAdmin() {
         List<AdminDto> adminList = new ArrayList<>();
-
         for (Admin admin : adminDAO.getAll()) {
             adminList.add(new AdminDto(
                     admin.getUsername(),
                     admin.getPassword()));
         }
-
         return adminList;
     }
 
 
     @Override
     public boolean saveAdmin(AdminDto dto) {
-        return adminDAO.save(new Admin(dto.getUsername(),dto.getPassword()));
+        return adminDAO.save(new Admin(dto.getUsername(),dto.getPassword(), dto.getImgUrl()));
     }
 
     @Override
     public boolean updateAdmin(AdminDto dto) {
-        return adminDAO.update(new Admin(dto.getUsername(),dto.getPassword()));
+        return adminDAO.update(new Admin(dto.getUsername(),dto.getPassword(),dto.getImgUrl()));
     }
 
     @Override

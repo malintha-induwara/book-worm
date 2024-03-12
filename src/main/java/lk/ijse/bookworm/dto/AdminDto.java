@@ -6,6 +6,8 @@ public class AdminDto {
 
     private String password;
 
+    private String imgUrl;
+
 
     public AdminDto() {
     }
@@ -15,6 +17,11 @@ public class AdminDto {
         this.password = password;
     }
 
+    public AdminDto(String username, String password, String imgUrl) {
+        this.username = username;
+        this.password = password;
+        this.imgUrl = imgUrl;
+    }
 
     public String getUsername() {
         return username;
@@ -32,12 +39,12 @@ public class AdminDto {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "AdminDto{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
 

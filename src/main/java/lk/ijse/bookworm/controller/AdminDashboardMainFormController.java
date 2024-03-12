@@ -1,13 +1,18 @@
 package lk.ijse.bookworm.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 
@@ -36,17 +41,41 @@ public class AdminDashboardMainFormController {
     @FXML
     private MFXButton btnUser;
 
+    @FXML
+    private Label idAdminName;
+
+
+    @FXML
+    private Circle cirAdminImage;
+
+
+
+
 
 
 
     public void initialize() throws IOException {
+        setAdminNameAndImage();
+        loadAdminDashBoardForm();
+
+    }
+
+    private void setAdminNameAndImage() {
+        Platform.runLater(() -> {
+            idAdminName.setText(AdminBOImpl.admin.getUsername());
+
+            Image image = new Image(AdminBOImpl.admin.getImgUrl());
+            cirAdminImage.setFill(new ImagePattern(image));
+
+        });
+    }
+
+    private void loadAdminDashBoardForm() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminDashBoardForm.fxml"));
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(dashboardPane);
     }
-
-
 
     @FXML
     void btnBookOnAction(ActionEvent event) throws IOException {

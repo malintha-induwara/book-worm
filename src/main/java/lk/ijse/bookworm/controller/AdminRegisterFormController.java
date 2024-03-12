@@ -7,15 +7,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.AdminBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.dto.AdminDto;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class AdminRegisterFormController {
 
@@ -54,7 +64,10 @@ public class AdminRegisterFormController {
             return;
         }
 
-        AdminDto adminDto = new AdminDto(txtUsername.getText(), txtPassword.getText());
+
+        String imgUrl = imageSave();
+
+        AdminDto adminDto = new AdminDto(txtUsername.getText(), txtPassword.getText(),imgUrl);
         boolean isSaved = adminBO.saveAdmin(adminDto);
 
         if (isSaved) {
@@ -62,6 +75,39 @@ public class AdminRegisterFormController {
             loadLoginPane();
         } else {
             new Alert(Alert.AlertType.ERROR, "User Already Exists ").show();
+        }
+    }
+
+    private String imageSave() {
+        try {
+            ImagePattern imagePattern = (ImagePattern) AdminBOImpl.circleImg.getFill();
+            Image userImage = imagePattern.getImage();
+            URI uri = new URI(userImage.getUrl());
+
+            File file = new File(uri);
+            String sourceLocation = file.getAbsolutePath();
+
+            // Get the users home directory in a platform independent way
+            String userHomeDir = System.getProperty("user.home");
+            Path directoryPath = Paths.get(userHomeDir, "Desktop", "admins");
+
+            if (!Files.exists(directoryPath)) {
+                Files.createDirectories(directoryPath);
+            }
+
+            if (!(sourceLocation.equals("assets/images/addUserImage.png"))) {
+                Path sourcePath = file.toPath();
+                Path destinationPath = Paths.get(directoryPath.toString(), file.getName());
+                Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+
+                return "file:" + destinationPath;
+            }
+
+            return "assets/images/addUserImage.png";
+
+        } catch (URISyntaxException | IOException e) {
+            new Alert(Alert.AlertType.ERROR, "Check The File Path").show();
+            throw new RuntimeException(e);
         }
     }
 
