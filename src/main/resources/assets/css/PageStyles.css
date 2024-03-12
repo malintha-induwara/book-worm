@@ -50,4 +50,27 @@
     -mfx-main: #0984e3;
 }
 
+.pane-settings{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 15 15 15 15;
+}
 
+.mfx-text-field-details{
+    -mfx-main: #0984e3;
+    -fx-font-size: 15;
+    -fx-font-family: 'Visby Round CF Medium';
+}
+
+.mfx-button-update-settings{
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Medium';
+    -fx-background-color: #0984e3;
+    -fx-text-fill: #ffffff;
+}
+
+.mfx-button-remove-settings{
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Medium';
+    -fx-background-color:  #2d3436;
+    -fx-text-fill: #ffffff;
+}

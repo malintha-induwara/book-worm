@@ -116,7 +116,7 @@ public class AdminLoginFormController {
     @FXML
     void btnRegister(MouseEvent event) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminRegisterForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminImageForm.fxml"));
         Pane adminRegister = (Pane) fxmlLoader.load();
         adminLoginPane.getChildren().clear();
         adminLoginPane.getChildren().add(adminRegister);

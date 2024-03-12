@@ -98,7 +98,7 @@ public class AdminDashboardMainFormController {
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userSettingsForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminSettingsForm.fxml"));
         Pane settingPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(settingPane);

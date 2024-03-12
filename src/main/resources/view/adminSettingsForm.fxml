@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AdminSettingsFormController">
-
+<AnchorPane prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AdminSettingsFormController">
+   <children>
+      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Settings">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="83.0" layoutY="142.0" prefHeight="480.0" prefWidth="650.0" styleClass="pane-settings">
+         <children>
+            <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="197.0" layoutY="161.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
+            <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="197.0" layoutY="240.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
+            <MFXButton layoutX="197.0" layoutY="344.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-update-settings" text="Update" />
+            <MFXButton layoutX="357.0" layoutY="344.0" onAction="#btnLoginOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-remove-settings" text="Remove" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
