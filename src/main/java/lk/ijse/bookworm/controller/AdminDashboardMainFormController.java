@@ -51,9 +51,6 @@ public class AdminDashboardMainFormController {
 
 
 
-
-
-
     public void initialize() throws IOException {
         setAdminNameAndImage();
         loadAdminDashBoardForm();
@@ -63,7 +60,6 @@ public class AdminDashboardMainFormController {
     private void setAdminNameAndImage() {
         Platform.runLater(() -> {
             idAdminName.setText(AdminBOImpl.admin.getUsername());
-
             Image image = new Image(AdminBOImpl.admin.getImgUrl());
             cirAdminImage.setFill(new ImagePattern(image));
 

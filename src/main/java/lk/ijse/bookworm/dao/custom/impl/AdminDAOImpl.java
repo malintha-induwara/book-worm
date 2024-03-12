@@ -58,8 +58,8 @@ public class AdminDAOImpl implements AdminDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try{
-            User customer = session.get(User.class, id);
-            session.delete(customer);
+            Admin admin = session.get(Admin.class, id);
+            session.delete(admin);
             transaction.commit();
             return true;
         }catch (Exception e){
