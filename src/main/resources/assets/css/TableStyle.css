@@ -1,9 +1,9 @@
 @import '../fonts/Fonts.css';
 
 
-.table-view * {
-    -fx-font-size: 1em;
-}
+/*.table-view * {*/
+/*    -fx-font-size: 14px;*/
+/*}*/
 
 .table-view .column-header-background * {
     -fx-background-color: #ffffff;

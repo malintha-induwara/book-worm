@@ -7,7 +7,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
+import lk.ijse.bookworm.dto.BorrowBookDto;
 import lk.ijse.bookworm.tm.LateBookDetailTm;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public class AdminDashBoardFormController {
 
@@ -57,17 +61,20 @@ public class AdminDashBoardFormController {
 
     private void loadLateBookDetails() {
 
+        List<BorrowBookDto> allLateBookDetails = bookTransactionBO.getAllLateBookDetails();
 
-
-
-
-
-
-
-
-
-
-
+        for (BorrowBookDto borrowBookDto : allLateBookDetails) {
+            tblBorrowBook.getItems().add(new LateBookDetailTm(
+                    borrowBookDto.getId(),
+                    borrowBookDto.getUserId(),
+                    borrowBookDto.getBookId(),
+                    borrowBookDto.getBorrowDate(),
+                    borrowBookDto.getReturnDate(),
+                    Integer.toString(
+                            LocalDate.parse(borrowBookDto.getReturnDate()).compareTo(LocalDate.parse(borrowBookDto.getBorrowDate())
+                            ))
+            ));
+        }
     }
 
 

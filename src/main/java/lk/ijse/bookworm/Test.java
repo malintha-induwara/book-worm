@@ -83,21 +83,21 @@ public class Test {
 //        session.close();
 //
 
-
+//
         BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
 //        BorrowBookDto dto = new BorrowBookDto("U005", "B005", "2024-03-10", "2024-03-20");
 ////
-////
-//        System.out.println(bookTransactionBO.saveBorrowedBook(dto));
-
-       // bookTransactionBO.updateBorrowedBook("6");
-
-        List<BorrowBookDto> allLateBookDetails = bookTransactionBO.getAllLateBookDetails();
-
-        for (BorrowBookDto borrowBookDto : allLateBookDetails) {
-            System.out.println(borrowBookDto);
-        }
-
+//////
+////        System.out.println(bookTransactionBO.saveBorrowedBook(dto));
+//
+//       // bookTransactionBO.updateBorrowedBook("6");
+//
+//        List<BorrowBookDto> allLateBookDetails = bookTransactionBO.getAllLateBookDetails();
+//
+//        for (BorrowBookDto borrowBookDto : allLateBookDetails) {
+//            System.out.println(borrowBookDto);
+//        }
+//
 
 
 
@@ -110,6 +110,16 @@ public class Test {
 
 
 
+
+        String borrowDate = "2021-08-20";
+        String returnDate = "2021-08-22";
+
+        LocalDate borrowLocalDate = LocalDate.parse(borrowDate);
+        LocalDate returnLocalDate = LocalDate.parse(returnDate);
+
+        int lateCount = returnLocalDate.compareTo(borrowLocalDate);
+
+        System.out.println(lateCount);
 
 
 
