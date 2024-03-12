@@ -78,5 +78,21 @@ public class BookTransactionBOImpl implements BookTransactionBO {
         }
         return null;
     }
+
+    @Override
+    public List<BorrowBookDto> getAllLateBookDetails() {
+        List<BorrowBookDto> borrowBookDtoList = new ArrayList<>();
+        for (BookTransactions bookTransactions : bookTransactionDAO.getAllLateBookDetails()) {
+            borrowBookDtoList.add(new BorrowBookDto(
+                    String.valueOf(bookTransactions.getTransactionId()),
+                    bookTransactions.getUser().getEmail(),
+                    bookTransactions.getBook().getBookID(),
+                    String.valueOf(bookTransactions.getBorrowDate()),
+                    String.valueOf(bookTransactions.getReturnDate()),
+                    bookTransactions.isReturned()
+            ));
+        }
+        return borrowBookDtoList;
+    }
 }
 

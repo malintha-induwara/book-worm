@@ -14,8 +14,8 @@ public class AdminDAOImpl implements AdminDAO {
     @Override
     public List<Admin> getAll() {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        String sql = "FROM Admin";
-        Query query = session.createQuery(sql);
+        String hql = "FROM Admin";
+        Query query = session.createQuery(hql);
         List<Admin> adminList = query.list();
         session.close();
         return adminList;

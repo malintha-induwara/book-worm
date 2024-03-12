@@ -11,5 +11,5 @@ public interface BookTransactionBO extends SuperBO {
     boolean updateBorrowedBook(String id);
     boolean deleteBorrowedBook(String id);
     BorrowBookDto searchBorrowedBook(String id);
-
+    List<BorrowBookDto> getAllLateBookDetails();
 }

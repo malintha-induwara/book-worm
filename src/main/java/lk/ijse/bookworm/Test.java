@@ -16,6 +16,7 @@ import org.hibernate.Transaction;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.Phaser;
 
@@ -84,10 +85,22 @@ public class Test {
 
 
         BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
-        BorrowBookDto dto = new BorrowBookDto("U001", "B003", "2021-08-20", "2021-08-25");
+//        BorrowBookDto dto = new BorrowBookDto("U005", "B005", "2024-03-10", "2024-03-20");
+////
+////
+//        System.out.println(bookTransactionBO.saveBorrowedBook(dto));
+
+       // bookTransactionBO.updateBorrowedBook("6");
+
+        List<BorrowBookDto> allLateBookDetails = bookTransactionBO.getAllLateBookDetails();
+
+        for (BorrowBookDto borrowBookDto : allLateBookDetails) {
+            System.out.println(borrowBookDto);
+        }
 
 
-        System.out.println(bookTransactionBO.saveBorrowedBook(dto));
+
+
 
 //
 //        //System.out.println(bookTransactionBO.updateBorrowedBook("3"));

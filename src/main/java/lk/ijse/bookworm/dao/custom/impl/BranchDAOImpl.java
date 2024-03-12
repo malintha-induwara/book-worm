@@ -14,8 +14,8 @@ public class BranchDAOImpl implements BranchDAO {
     @Override
     public List<Branch> getAll() {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        String sql = "FROM Branch ";
-        Query query = session.createQuery(sql);
+        String hql = "FROM Branch ";
+        Query query = session.createQuery(hql);
         List<Branch> branchList = query.list();
         session.close();
         return branchList;

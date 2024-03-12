@@ -8,16 +8,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class BookTransactionDAOImpl implements BookTransactionDAO {
     @Override
     public List<BookTransactions> getAll() {
-
         Session session = SessionFactoryConfig.getInstance().getSession();
-        String sql = "FROM BookTransactions ";
-
-        Query query = session.createQuery(sql);
+        String hql = "FROM BookTransactions ";
+        Query query = session.createQuery(hql);
         List<BookTransactions> bookTransactionsList = query.list();
         session.close();
         return bookTransactionsList;
@@ -105,6 +104,18 @@ public class BookTransactionDAOImpl implements BookTransactionDAO {
         finally {
             session.close();
         }
+    }
+
+    @Override
+    public List<BookTransactions> getAllLateBookDetails() {
+        LocalDate currentDate = LocalDate.now();
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        String hql = "FROM BookTransactions bt WHERE bt.isReturned = false AND bt.returnDate < :currentDate";
+        Query query = session.createQuery(hql);
+        query.setParameter("currentDate", currentDate);
+        List<BookTransactions> bookTransactionsList = query.list();
+        session.close();
+        return bookTransactionsList;
     }
 }
 

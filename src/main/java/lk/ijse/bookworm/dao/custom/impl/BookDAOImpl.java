@@ -13,9 +13,9 @@ public class BookDAOImpl implements BookDAO {
     @Override
     public List<Book> getAll() {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        String sql = "FROM Book ";
+        String hql = "FROM Book ";
 
-        Query query = session.createQuery(sql);
+        Query query = session.createQuery(hql);
         List<Book> bookList = query.list();
         session.close();
         return bookList;

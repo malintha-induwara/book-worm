@@ -82,5 +82,17 @@ public class BorrowBookDto {
     public void setReturned(boolean returned) {
         isReturned = returned;
     }
+
+    @Override
+    public String toString() {
+        return "BorrowBookDto{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", bookId='" + bookId + '\'' +
+                ", borrowDate='" + borrowDate + '\'' +
+                ", returnDate='" + returnDate + '\'' +
+                ", isReturned=" + isReturned +
+                '}';
+    }
 }
 

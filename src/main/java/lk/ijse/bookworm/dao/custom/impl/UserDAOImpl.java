@@ -15,8 +15,8 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> getAll() {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        String sql = "FROM User";
-        Query query = session.createQuery(sql);
+        String hql = "FROM User";
+        Query query = session.createQuery(hql);
         List<User> customerList = query.list();
         session.close();
         return customerList;
