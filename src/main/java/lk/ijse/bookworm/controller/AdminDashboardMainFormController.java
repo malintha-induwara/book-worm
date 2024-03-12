@@ -41,29 +41,9 @@ public class AdminDashboardMainFormController {
     @FXML
     private MFXButton btnUser;
 
-    @FXML
-    private Label idAdminName;
-
-
-    @FXML
-    private Circle cirAdminImage;
-
-
-
-
     public void initialize() throws IOException {
-        setAdminNameAndImage();
         loadAdminDashBoardForm();
 
-    }
-
-    private void setAdminNameAndImage() {
-        Platform.runLater(() -> {
-            idAdminName.setText(AdminBOImpl.admin.getUsername());
-            Image image = new Image(AdminBOImpl.admin.getImgUrl());
-            cirAdminImage.setFill(new ImagePattern(image));
-
-        });
     }
 
     private void loadAdminDashBoardForm() throws IOException {
