@@ -42,14 +42,6 @@ public class BorrowBookFormController {
 
 
     @FXML
-    private Label idAdminName;
-
-
-    @FXML
-    private Circle cirAdminImage;
-
-
-    @FXML
     private TableColumn<BorrowBookTm, String> colBookID;
 
     @FXML
@@ -85,21 +77,12 @@ public class BorrowBookFormController {
 
 
     public void initialize() {
-        setAdminNameAndImage();
         loadUserIds();
         loadBookIds();
         setCellValueFactory();
         loadBorrowedBooks();
     }
 
-    private void setAdminNameAndImage() {
-        Platform.runLater(() -> {
-            idAdminName.setText(AdminBOImpl.admin.getUsername());
-            Image image = new Image(AdminBOImpl.admin.getImgUrl());
-            cirAdminImage.setFill(new ImagePattern(image));
-
-        });
-    }
 
     private void loadBorrowedBooks() {
         List<BorrowBookDto> allBorrowedBooks = bookTransactionBO.getAllBorrowedBooks();
