@@ -28,10 +28,9 @@ public class BorrowBookDto {
         this.isReturned = isReturned;
     }
 
-    public BorrowBookDto(String userId, String bookId, String borrowDate, String returnDate) {
+    public BorrowBookDto(String userId, String bookId, String returnDate) {
         this.userId = userId;
         this.bookId = bookId;
-        this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
 

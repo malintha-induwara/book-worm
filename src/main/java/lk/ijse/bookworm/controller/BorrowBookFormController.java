@@ -23,6 +23,7 @@ import lk.ijse.bookworm.dto.BorrowBookDto;
 import lk.ijse.bookworm.tm.BookTm;
 import lk.ijse.bookworm.tm.BorrowBookTm;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class BorrowBookFormController {
@@ -104,6 +105,7 @@ public class BorrowBookFormController {
                 boolean isUpdated = bookTransactionBO.updateBorrowedBook(observableList.get(index).getId());
                 if (isUpdated){
                     new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();
+                    loadBookIds();
                 }
                 else {
                     new Alert(Alert.AlertType.ERROR,"Not Updated").show();
@@ -140,6 +142,7 @@ public class BorrowBookFormController {
                             //Alert
                             if (isDeleted){
                                 new Alert(Alert.AlertType.CONFIRMATION,"User Deleted").show();
+                                loadBookIds();
                             }
                             else {
                                 new Alert(Alert.AlertType.ERROR, "User Doesnt Deleted").show();
@@ -169,18 +172,18 @@ public class BorrowBookFormController {
         };
 
         colRemove.setCellFactory(colRemoveCellFactory);
-
-
-
-
-
-
-
     }
 
     private void loadBookIds() {
+
+        //Clear Items
+        cmbBookID.getItems().clear();
+
         bookBO.getAllBooks().forEach(dto -> {
-            cmbBookID.getItems().add(dto.getBookId());
+            boolean availability = dto.isAvailability();
+            if (availability) {
+                cmbBookID.getItems().add(dto.getBookId());
+            }
         });
 
     }
@@ -194,17 +197,32 @@ public class BorrowBookFormController {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-
         boolean isValidated = validateFields();
-
         if (!isValidated) {
             return;
         }
 
+        String userId = cmbUserID.getText();
+        String bookId = cmbBookID.getText();
+        LocalDate returnDate = dpReturnDate.getValue();
 
+        BorrowBookDto dto = new BorrowBookDto(userId, bookId, returnDate.toString());
+        boolean isSaved = bookTransactionBO.saveBorrowedBook(dto);
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Book Borrowed").show();
+            loadBorrowedBooks();
+            loadBookIds();
+            clearFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Book Not Borrowed").show();
+        }
 
+    }
 
-
+    private void clearFields() {
+        cmbUserID.clear();
+        cmbBookID.clear();
+        dpReturnDate.clear();
     }
 
     private boolean validateFields() {
