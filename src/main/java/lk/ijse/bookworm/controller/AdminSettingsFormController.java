@@ -75,14 +75,18 @@ public class AdminSettingsFormController {
 
         AdminDto adminDto = new AdminDto(txtUsername.getText(), txtPassword.getText(),imgUrl);
         boolean isSaved = adminBO.updateAdmin(adminDto);
-
         if (isSaved) {
-            AdminBOImpl.circleImg=circleImg;
-
+            updateAdminDetails(adminDto);
             new Alert(Alert.AlertType.CONFIRMATION, "Update Successfully").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Update Failed").show();
         }
+    }
+
+    private void updateAdminDetails(AdminDto adminDto) {
+        AdminBOImpl.admin.setUsername(adminDto.getUsername());
+        AdminBOImpl.admin.setPassword(adminDto.getPassword());
+        AdminBOImpl.admin.setImgUrl(adminDto.getImgUrl());
     }
 
     private String imageSave() {

@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.dao.custom.impl;
 
+import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.dao.custom.AdminDAO;
 import lk.ijse.bookworm.entity.Admin;
 import lk.ijse.bookworm.entity.User;
@@ -42,11 +43,24 @@ public class AdminDAOImpl implements AdminDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try{
+            Admin admin = search(AdminBOImpl.admin.getUsername());
+            if (!(admin.getUsername().equals(entity.getUsername()))){
+                String hql ="UPDATE Admin set username = :username WHERE username = :oldUsername";
+                Query query = session.createQuery(hql);
+                query.setParameter("username", entity.getUsername());
+                query.setParameter("oldUsername", admin.getUsername());
+                int result = query.executeUpdate();
+                if (!(result>0)){
+                    throw new Exception("Something went wrong");
+                }
+            }
             session.update(entity);
             transaction.commit();
             return true;
         }catch (Exception e){
             transaction.rollback();
+
+            e.printStackTrace();
             return false;
         }finally {
             session.close();
