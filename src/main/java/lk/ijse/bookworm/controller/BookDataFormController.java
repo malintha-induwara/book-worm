@@ -119,7 +119,7 @@ public class BookDataFormController {
 
     private boolean validateFields() {
 
-        boolean isBookIdValid = txtBookId.getText().matches("[a-zA-Z]{3,}$");
+        boolean isBookIdValid = txtBookId.getText().matches("^B[0-9]{3}$");
 
         if (!isBookIdValid) {
             txtBookId.requestFocus();
@@ -130,7 +130,7 @@ public class BookDataFormController {
         txtBookId.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isTitleValid = txtTitle.getText().matches("[a-zA-Z]{3,}$");
+        boolean isTitleValid = txtTitle.getText().matches(".+");
 
         if (!isTitleValid) {
             txtTitle.requestFocus();
@@ -141,7 +141,7 @@ public class BookDataFormController {
         txtTitle.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isAuthorValid = txtAuthor.getText().matches("[a-zA-Z]{3,}$");
+        boolean isAuthorValid = txtAuthor.getText().matches(".+");
 
         if (!isAuthorValid) {
             txtAuthor.requestFocus();
@@ -152,7 +152,7 @@ public class BookDataFormController {
         txtAuthor.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isGenreValid = txtGenre.getText().matches("[a-zA-Z]{3,}$");
+        boolean isGenreValid = txtGenre.getText().matches("^[a-zA-Z ]+$");
 
         if (!isGenreValid) {
             txtGenre.requestFocus();

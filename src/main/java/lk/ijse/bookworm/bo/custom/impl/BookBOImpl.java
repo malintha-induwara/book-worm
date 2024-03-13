@@ -35,14 +35,14 @@ public class BookBOImpl implements BookBO {
     @Override
     public boolean saveBook(BookDto dto) {
         Branch branch = branchDAO.search(dto.getBranchID());
-        return bookDAO.save(new Book(dto.getBookId(),dto.getAuthor(),dto.getGenre(),dto.getTitle(),dto.isAvailability(),branch));
+        return bookDAO.save(new Book(dto.getBookId(),dto.getTitle(),dto.getAuthor(),dto.getGenre(),dto.isAvailability(),branch));
     }
 
     @Override
     public boolean updateBook(BookDto dto) {
         Branch branch = branchDAO.search(dto.getBranchID());
         Book book = bookDAO.search(dto.getBookId());
-        return bookDAO.update(new Book(dto.getBookId(),dto.getAuthor(),dto.getGenre(),dto.getTitle(),book.isAvailable(),branch));
+        return bookDAO.update(new Book(dto.getBookId(),dto.getTitle(),dto.getAuthor(),dto.getGenre(),book.isAvailable(),branch));
     }
 
     @Override
