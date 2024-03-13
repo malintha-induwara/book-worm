@@ -39,10 +39,14 @@
 
 .mfx-combo-box{
     -mfx-main: #0984e3;
+    -fx-font-size: 14;
+    -fx-font-family: 'Visby Round CF Medium';
 }
 
 .mfx-combo-box-error{
     -mfx-main:  #f5194d;
+    -fx-font-size: 14;
+    -fx-font-family: 'Visby Round CF Medium';
 }
 
 
@@ -57,13 +61,13 @@
 
 .mfx-text-field-details{
     -mfx-main: #0984e3;
-    -fx-font-size: 15;
+    -fx-font-size: 14;
     -fx-font-family: 'Visby Round CF Medium';
 }
 
 .mfx-text-field-details-error{
     -mfx-main: #ff3e56;
-    -fx-font-size: 15;
+    -fx-font-size: 14;
     -fx-font-family: 'Visby Round CF Medium';
 }
 

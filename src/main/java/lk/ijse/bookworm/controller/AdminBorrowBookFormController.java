@@ -18,7 +18,7 @@ import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.BorrowBookDto;
-import lk.ijse.bookworm.tm.BorrowBookTm;
+import lk.ijse.bookworm.tm.AdminBorrowBookTm;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -37,32 +37,32 @@ public class AdminBorrowBookFormController {
 
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colBookID;
+    private TableColumn<AdminBorrowBookTm, String> colBookID;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colBorrowDate;
+    private TableColumn<AdminBorrowBookTm, String> colBorrowDate;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colID;
+    private TableColumn<AdminBorrowBookTm, String> colID;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colIsReturned;
+    private TableColumn<AdminBorrowBookTm, String> colIsReturned;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colRemove;
+    private TableColumn<AdminBorrowBookTm, String> colRemove;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colReturnDate;
+    private TableColumn<AdminBorrowBookTm, String> colReturnDate;
 
     @FXML
-    private TableColumn<BorrowBookTm, String> colUserID;
+    private TableColumn<AdminBorrowBookTm, String> colUserID;
 
     @FXML
     private MFXDatePicker dpReturnDate;
 
 
     @FXML
-    private TableView<BorrowBookTm> tblBorrowBook;
+    private TableView<AdminBorrowBookTm> tblBorrowBook;
 
 
     UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
@@ -83,10 +83,10 @@ public class AdminBorrowBookFormController {
         List<BorrowBookDto> allBorrowedBooks = bookTransactionBO.getAllBorrowedBooks();
 
 
-        ObservableList<BorrowBookTm> observableList = FXCollections.observableArrayList();
+        ObservableList<AdminBorrowBookTm> observableList = FXCollections.observableArrayList();
 
         for (BorrowBookDto dto : allBorrowedBooks) {
-            observableList.add(new BorrowBookTm(
+            observableList.add(new AdminBorrowBookTm(
                     dto.getId(),
                     dto.getUserId(),
                     dto.getBookId(),
@@ -124,13 +124,13 @@ public class AdminBorrowBookFormController {
         colIsReturned.setCellValueFactory(new PropertyValueFactory<>("isReturned"));
 
 
-        Callback<TableColumn<BorrowBookTm, String>, TableCell<BorrowBookTm, String>> colRemoveCellFactory
-                = new Callback<TableColumn<BorrowBookTm, String>, TableCell<BorrowBookTm, String>>()
+        Callback<TableColumn<AdminBorrowBookTm, String>, TableCell<AdminBorrowBookTm, String>> colRemoveCellFactory
+                = new Callback<TableColumn<AdminBorrowBookTm, String>, TableCell<AdminBorrowBookTm, String>>()
         {
             @Override
-            public TableCell<BorrowBookTm,String> call(final TableColumn<BorrowBookTm, String> param)
+            public TableCell<AdminBorrowBookTm,String> call(final TableColumn<AdminBorrowBookTm, String> param)
             {
-                final TableCell<BorrowBookTm, String> cell = new TableCell<BorrowBookTm, String>()
+                final TableCell<AdminBorrowBookTm, String> cell = new TableCell<AdminBorrowBookTm, String>()
                 {
                     final MFXButton btn = new MFXButton("");
 
@@ -144,7 +144,7 @@ public class AdminBorrowBookFormController {
                         btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
 
                         btn.setOnAction(event -> {
-                            BorrowBookTm tm = getTableView().getItems().get(getIndex());
+                            AdminBorrowBookTm tm = getTableView().getItems().get(getIndex());
                             boolean isDeleted = bookTransactionBO.deleteBorrowedBook(tm.getId());
                             //Alert
                             if (isDeleted){

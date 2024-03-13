@@ -73,7 +73,6 @@ public class UserRegisterFormController {
             return;
         }
 
-
         String imgUrl = imageSave();
 
         UserDto userDto = new UserDto(txtUsername.getText(),txtName.getText(),txtAddress.getText(),txtPassword.getText(),imgUrl);
