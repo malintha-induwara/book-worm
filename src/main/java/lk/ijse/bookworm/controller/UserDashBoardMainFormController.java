@@ -51,7 +51,7 @@ public class UserDashBoardMainFormController {
     private void setUserNameAndImage(boolean flag) {
         imgAndNameHolderPane.setVisible(flag);
         Platform.runLater(() -> {
-            idUserName.setText(UserBOImpl.loggedUser.getEmail());
+            idUserName.setText(UserBOImpl.loggedUser.getName());
             Image image = new Image(UserBOImpl.loggedUser.getImgUrl());
             cirUserImage.setFill(new ImagePattern(image));
         });

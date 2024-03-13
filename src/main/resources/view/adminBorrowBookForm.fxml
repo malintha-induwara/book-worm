@@ -40,6 +40,6 @@
       </TableView>
       <MFXFilterComboBox fx:id="cmbUserID" floatingText="User ID" layoutX="27.0" layoutY="139.0" prefHeight="42.0" prefWidth="175.0" styleClass="mfx-combo-box" />
       <MFXFilterComboBox fx:id="cmbBookID" floatingText="Book ID" layoutX="247.0" layoutY="139.0" prefHeight="42.0" prefWidth="175.0" styleClass="mfx-combo-box" />
-      <MFXDatePicker fx:id="dpReturnDate" layoutX="457.0" layoutY="141.0" prefHeight="38.0" prefWidth="168.0" promptText="Return Date" />
+      <MFXDatePicker fx:id="dpReturnDate" layoutX="456.0" layoutY="138.0" prefHeight="45.0" prefWidth="168.0" promptText="Return Date" />
    </children>
 </AnchorPane>

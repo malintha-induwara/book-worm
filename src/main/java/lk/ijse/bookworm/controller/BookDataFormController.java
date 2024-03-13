@@ -162,6 +162,18 @@ public class BookDataFormController {
 
         txtGenre.getStyleClass().remove("mfx-text-field-error");
 
+
+        boolean isBranchValid = colBranch.getText().isEmpty();
+
+        if(isBranchValid){
+            colBranch.requestFocus();
+            colBranch.getStyleClass().add("mfx-combo-box-error");
+            return false;
+        }
+
+        colBranch.getStyleClass().remove("mfx-combo-box-error");
+
+
         return true;
 
     }

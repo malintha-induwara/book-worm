@@ -129,6 +129,16 @@ public class BranchDataFormController {
 
         txtBranchAddress.getStyleClass().remove("mfx-text-field-error");
 
+        boolean isCmbAdminValid = cmbAdmin.getText().isEmpty();
+
+        if(isCmbAdminValid){
+            cmbAdmin.requestFocus();
+            cmbAdmin.getStyleClass().add("mfx-combo-box-error");
+            return false;
+        }
+
+        cmbAdmin.getStyleClass().remove("mfx-combo-box-error");
+
         return true;
     }
 
