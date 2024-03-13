@@ -8,7 +8,6 @@ import lk.ijse.bookworm.dao.DAOFactory;
 import lk.ijse.bookworm.dao.custom.BookDAO;
 import lk.ijse.bookworm.dao.custom.UserDAO;
 import lk.ijse.bookworm.dto.*;
-import lk.ijse.bookworm.embeddad.BookTransactionsPK;
 import lk.ijse.bookworm.entity.*;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
 import org.hibernate.Session;

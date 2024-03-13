@@ -11,6 +11,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -73,9 +75,21 @@ public class UserFormController {
             {
                 final TableCell<UserTm, String> cell = new TableCell<UserTm, String>()
                 {
-                    final MFXButton btn = new MFXButton("Remove");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+                        ImageView delete = new ImageView(new Image("/assets/images/remove.png"));
+                        delete.setFitHeight(30);
+                        delete.setPreserveRatio(true);
+
+                        btn.setGraphic(delete);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
+
+
                         btn.setOnAction(event -> {
                             UserTm tm = getTableView().getItems().get(getIndex());
                             boolean isDeleted = userBO.deleteUser(tm.getEmail());
@@ -122,9 +136,22 @@ public class UserFormController {
             @Override
             public TableCell<UserTm, String> call(final TableColumn<UserTm, String> param) {
                 final TableCell<UserTm, String> cell = new TableCell<>() {
-                    final MFXButton btn = new MFXButton("Update");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+
+
+                        ImageView update = new ImageView(new Image("/assets/images/edit.png"));
+                        update.setFitHeight(30);
+                        update.setPreserveRatio(true);
+
+                        btn.setGraphic(update);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
+
                         btn.setOnAction(event -> {
                             UserTm tm = getTableView().getItems().get(getIndex());
 
