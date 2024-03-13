@@ -12,10 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.UserBorrowBookFormController">
    <children>
-      <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="204.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
+      <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="27.0" layoutY="204.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
          <columns>
             <TableColumn fx:id="colID" prefWidth="121.0" style="-fx-alignment: center;" text="ID" />
             <TableColumn fx:id="colBookID" prefWidth="181.0" style="-fx-alignment: center;" text="BookID" />
@@ -30,9 +29,9 @@
          </font>
       </Label>
       <MFXFilterComboBox fx:id="cmbBookID" floatingText="Book ID" layoutX="236.0" layoutY="129.0" prefHeight="40.0" prefWidth="175.0" styleClass="mfx-combo-box" />
-      <MFXTextField fx:id="txtSearch" floatMode="DISABLED" floatingText="Search" layoutX="28.0" layoutY="129.0" prefHeight="45.0" prefWidth="175.0" promptText="Search" styleClass="mfx-text-field-details" />
-      <MFXDatePicker fx:id="dpReturnDate" layoutX="441.0" layoutY="131.0" prefHeight="45.0" prefWidth="168.0" promptText="Return Date" />
-      <MFXButton layoutX="667.0" layoutY="130.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PageStyles.css" text="Add">
+      <MFXTextField fx:id="txtSearch" floatMode="DISABLED" floatingText="Search" layoutX="27.0" layoutY="130.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="175.0" promptText="Search" styleClass="mfx-text-field-details" />
+      <MFXDatePicker fx:id="dpReturnDate" layoutX="442.0" layoutY="129.0" prefHeight="45.0" prefWidth="168.0" promptText="Return Date" />
+      <MFXButton layoutX="666.0" layoutY="132.0" onAction="#btnBorrowOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PageStyles.css" text="Borrow">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

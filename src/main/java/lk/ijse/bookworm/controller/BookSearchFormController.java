@@ -1,6 +1,11 @@
 package lk.ijse.bookworm.controller;
 
 
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,6 +37,10 @@ public class BookSearchFormController {
     private TableView<BookTm> tblBook;
 
 
+    @FXML
+    private MFXTextField txtSearch;
+
+
     BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
 
     public void initialize(){
@@ -50,9 +59,9 @@ public class BookSearchFormController {
 
 
     private void loadBookDetails() {
-        tblBook.getItems().clear();
+        ObservableList<BookTm> bookTms = FXCollections.observableArrayList();
         bookBO.getAllBooks().forEach(bookDto -> {
-            tblBook.getItems().add(new BookTm(
+            bookTms.add(new BookTm(
                     bookDto.getBookId(),
                     bookDto.getTitle(),
                     bookDto.getAuthor(),
@@ -60,10 +69,26 @@ public class BookSearchFormController {
                     bookDto.isAvailability()? "Yes" : "No"
             ));
         });
-
+        tblBook.setItems(bookTms);
     }
 
 
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+        String keyword = txtSearch.getText().trim().toLowerCase();
+        if (keyword.isEmpty()) {
+           loadBookDetails();
+        } else {
+            FilteredList<BookTm> filteredData = new FilteredList<>(tblBook.getItems(), bookTm ->
+                    bookTm.getBookID().toLowerCase().contains(keyword) ||
+                            bookTm.getBookTitle().toLowerCase().contains(keyword) ||
+                            bookTm.getAuthor().toLowerCase().contains(keyword) ||
+                            bookTm.getGenre().toLowerCase().contains(keyword) ||
+                            bookTm.getAvailability().toLowerCase().contains(keyword)
+            );
+            tblBook.setItems(filteredData);
+        }
+    }
 }
 
 

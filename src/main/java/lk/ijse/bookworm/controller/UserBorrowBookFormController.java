@@ -5,6 +5,7 @@ import io.github.palexdev.materialfx.controls.MFXFilterComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -15,6 +16,7 @@ import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
 import lk.ijse.bookworm.bo.custom.impl.UserBOImpl;
 import lk.ijse.bookworm.dto.BorrowBookDto;
+import lk.ijse.bookworm.tm.BookTm;
 import lk.ijse.bookworm.tm.UserBorrowBookTm;
 
 import java.util.List;
@@ -98,10 +100,28 @@ public class UserBorrowBookFormController {
 
 
     @FXML
-    void btnAddOnAction(ActionEvent event) {
+    void btnBorrowOnAction(ActionEvent event) {
 
     }
 
+
+
+    @FXML
+    void txtSearchOnAction(ActionEvent event) {
+        String keyword = txtSearch.getText().trim().toLowerCase();
+        if (keyword.isEmpty()) {
+            loadBorrowedBooks();
+        } else {
+            FilteredList<UserBorrowBookTm> filteredData = new FilteredList<>(tblBorrowBook.getItems(), userBorrowBookTm ->
+                    userBorrowBookTm.getId().toLowerCase().contains(keyword) ||
+                            userBorrowBookTm.getBookId().toLowerCase().contains(keyword) ||
+                            userBorrowBookTm.getBorrowDate().toLowerCase().contains(keyword) ||
+                            userBorrowBookTm.getReturnDate().toLowerCase().contains(keyword) ||
+                            userBorrowBookTm.getIsReturned().toLowerCase().contains(keyword)
+            );
+            tblBorrowBook.setItems(filteredData);
+        }
+    }
 
 
 }
