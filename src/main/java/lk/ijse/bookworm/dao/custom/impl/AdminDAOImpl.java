@@ -58,7 +58,6 @@ public class AdminDAOImpl implements AdminDAO {
             return true;
         }catch (Exception e){
             transaction.rollback();
-
             e.printStackTrace();
             return false;
         }finally {

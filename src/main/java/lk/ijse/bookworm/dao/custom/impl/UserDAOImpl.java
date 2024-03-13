@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.dao.custom.impl;
 
+import lk.ijse.bookworm.bo.custom.impl.UserBOImpl;
 import lk.ijse.bookworm.dao.custom.UserDAO;
 import lk.ijse.bookworm.entity.User;
 import lk.ijse.bookworm.util.SessionFactoryConfig;
@@ -43,11 +44,23 @@ public class UserDAOImpl implements UserDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try{
+            User user = search(UserBOImpl.loggedUser.getEmail());
+            if (!(user.getEmail().equals(entity.getEmail()))){
+                String hql ="UPDATE User set email = :email WHERE email = :oldEmail";
+                Query query = session.createQuery(hql);
+                query.setParameter("email", entity.getEmail());
+                query.setParameter("oldEmail", user.getEmail());
+                int result = query.executeUpdate();
+                if (!(result>0)){
+                    throw new Exception("Something went wrong");
+                }
+            }
             session.update(entity);
             transaction.commit();
             return true;
         }catch (Exception e){
             transaction.rollback();
+            e.printStackTrace();
             return false;
         }finally {
             session.close();
@@ -59,8 +72,8 @@ public class UserDAOImpl implements UserDAO {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try{
-            User customer = session.get(User.class, id);
-            session.delete(customer);
+            User user = session.get(User.class, id);
+            session.delete(user);
             transaction.commit();
             return true;
         }catch (Exception e){
