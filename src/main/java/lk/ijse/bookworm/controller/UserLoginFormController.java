@@ -7,11 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.dto.UserDto;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -33,15 +37,41 @@ public class UserLoginFormController {
     private Label lblError;
 
 
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+
+
     @FXML
     void btnLogin(ActionEvent event) throws IOException {
-//
-//        boolean isLoginValidated = validateLogin();
-//
-//        if (!isLoginValidated) {
-//            return;
-//        }
 
+        boolean isLoginValidated = validateLogin();
+
+        if (!isLoginValidated) {
+            return;
+        }
+
+        UserDto userDto = new UserDto(txtUsername.getText(), txtPassword.getText());
+
+        boolean isUserExist= userBO.isUserExist(userDto);
+
+        if (!isUserExist){
+            new Alert(Alert.AlertType.ERROR, "Invalid Username or Password").show();
+            //Highlight Fields
+            txtUsername.getStyleClass().add("mfx-text-field-error");
+            txtPassword.getStyleClass().add("mfx-text-field-error");
+            return;
+        }
+
+        clearFields();
+
+        openDashboard();
+    }
+
+    private void clearFields() {
+        txtUsername.clear();
+        txtPassword.clear();
+    }
+
+    private void openDashboard() throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/userDashBoardMainForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();
@@ -53,7 +83,6 @@ public class UserLoginFormController {
         //Close the Current Window
         Stage loginStage = (Stage) loginPane.getScene().getWindow();
         loginStage.close();
-
     }
 
     private boolean validateLogin() {

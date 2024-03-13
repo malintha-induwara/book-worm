@@ -60,5 +60,17 @@ public class UserBOImpl implements UserBO {
         }
         return null;
     }
+
+    @Override
+    public boolean isUserExist(UserDto userDto) {
+        User search = userDAO.search(userDto.getEmail());
+        if (search != null) {
+            if (search.getPassword().equals(userDto.getPassword())) {
+                loggedUser=search;
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
