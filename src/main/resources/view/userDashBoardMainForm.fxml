@@ -29,7 +29,7 @@
                         <Insets left="35.0" />
                      </padding>
                   </MFXButton>
-                  <MFXButton fx:id="btnHistory" alignment="BASELINE_LEFT" onAction="#btnHistoryOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BookHistory" text="History">
+                  <MFXButton fx:id="btnBorrowBook" alignment="BASELINE_LEFT" onAction="#btnBorrowBookOnAction" prefHeight="51.0" prefWidth="197.0" styleClass="mfx-button-BookHistory" text="Borrow Book">
                      <graphic>
                         <ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
