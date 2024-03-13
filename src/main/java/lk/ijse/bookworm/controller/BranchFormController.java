@@ -11,6 +11,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -69,13 +71,23 @@ public class BranchFormController {
             {
                 final TableCell<BranchTm, String> cell = new TableCell<BranchTm, String>()
                 {
-                    final MFXButton btn = new MFXButton("Remove");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+                        ImageView delete = new ImageView(new Image("/assets/images/remove.png"));
+                        delete.setFitHeight(30);
+                        delete.setPreserveRatio(true);
+
+                        btn.setGraphic(delete);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
+
                         btn.setOnAction(event -> {
                             BranchTm tm = getTableView().getItems().get(getIndex());
 
-                            System.out.println(tm.getBranchId());
                             boolean isDeleted = branchBO.deleteBranch(tm.getBranchId());
 
                             //Alert

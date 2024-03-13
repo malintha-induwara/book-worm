@@ -11,6 +11,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import lk.ijse.bookworm.bo.BOFactory;
@@ -73,9 +75,22 @@ public class BookFormController {
             {
                 final TableCell<BookTm, String> cell = new TableCell<BookTm, String>()
                 {
-                    final MFXButton btn = new MFXButton("Remove");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+
+                        ImageView delete = new ImageView(new Image("/assets/images/remove.png"));
+                        delete.setFitHeight(30);
+                        delete.setPreserveRatio(true);
+
+                        btn.setGraphic(delete);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
+
+
                         btn.setOnAction(event -> {
                             BookTm tm = getTableView().getItems().get(getIndex());
 
@@ -122,9 +137,22 @@ public class BookFormController {
             @Override
             public TableCell<BookTm, String> call(final TableColumn<BookTm, String> param) {
                 final TableCell<BookTm, String> cell = new TableCell<>() {
-                    final MFXButton btn = new MFXButton("Update");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+
+                        ImageView update = new ImageView(new Image("/assets/images/edit.png"));
+                        update.setFitHeight(30);
+                        update.setPreserveRatio(true);
+
+                        btn.setGraphic(update);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
+
+
                         btn.setOnAction(event -> {
                             BookTm tm = getTableView().getItems().get(getIndex());
                             //Catch the exception

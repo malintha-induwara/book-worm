@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -137,9 +138,19 @@ public class BorrowBookFormController {
             {
                 final TableCell<BorrowBookTm, String> cell = new TableCell<BorrowBookTm, String>()
                 {
-                    final MFXButton btn = new MFXButton("Remove");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+                        ImageView delete = new ImageView(new Image("/assets/images/remove.png"));
+                        delete.setFitHeight(30);
+                        delete.setPreserveRatio(true);
+
+                        btn.setGraphic(delete);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+                        btn.setPrefHeight(30);
+                        btn.setPrefWidth(100);
+
                         btn.setOnAction(event -> {
                             BorrowBookTm tm = getTableView().getItems().get(getIndex());
                             boolean isDeleted = bookTransactionBO.deleteBorrowedBook(tm.getId());
