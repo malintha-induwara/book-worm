@@ -1,6 +1,10 @@
 package lk.ijse.bookworm.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.UserBO;
+import lk.ijse.bookworm.tm.BranchTm;
 import lk.ijse.bookworm.tm.UserTm;
 
 import java.io.IOException;
@@ -46,6 +51,10 @@ public class UserFormController {
     @FXML
     private AnchorPane userPane;
 
+    @FXML
+    private MFXTextField txtSearch;
+
+
     private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
 
     public void initialize(){
@@ -54,10 +63,11 @@ public class UserFormController {
     }
 
     public void loadUserDetails() {
-        tblUser.getItems().clear();
+        ObservableList<UserTm> userTms = FXCollections.observableArrayList();
         userBO.getAllUsers().forEach(userDto -> {
-            tblUser.getItems().add(new UserTm(userDto.getName(),userDto.getEmail(),userDto.getAddress()));
+            userTms.add(new UserTm(userDto.getName(),userDto.getEmail(),userDto.getAddress()));
         });
+        tblUser.setItems(userTms);
     }
 
     private void setCellValueFactory() {
@@ -219,6 +229,22 @@ public class UserFormController {
         stage.centerOnScreen();
         stage.setTitle("Update User");
         stage.show();
+    }
+
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+        String keyword = txtSearch.getText().trim().toLowerCase();
+        if (keyword.isEmpty()) {
+            loadUserDetails();
+        } else {
+            FilteredList<UserTm> filteredData = new FilteredList<>(tblUser.getItems(), userTm ->
+                    userTm.getEmail().toLowerCase().contains(keyword) ||
+                            userTm.getName().toLowerCase().contains(keyword) ||
+                            userTm.getAddress().toLowerCase().contains(keyword)
+            );
+            tblUser.setItems(filteredData);
+        }
     }
 
 }
