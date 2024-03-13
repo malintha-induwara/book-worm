@@ -1,6 +1,10 @@
 package lk.ijse.bookworm.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.BranchBO;
+import lk.ijse.bookworm.tm.BookTm;
 import lk.ijse.bookworm.tm.BranchTm;
 
 import java.io.IOException;
@@ -47,6 +52,9 @@ public class BranchFormController {
 
     @FXML
     private TableView<BranchTm> tblBranch;
+
+    @FXML
+    private MFXTextField txtSearch;
 
     BranchBO branchBO =(BranchBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BRANCH);
 
@@ -178,15 +186,16 @@ public class BranchFormController {
 
 
     public void loadAllBranches() {
-        tblBranch.getItems().clear();
+        ObservableList<BranchTm> branchTms = FXCollections.observableArrayList();
         branchBO.getAllBranch().forEach(branchDto -> {
-            tblBranch.getItems().add(new BranchTm(
+            branchTms.add(new BranchTm(
                     branchDto.getBranchID(),
                     branchDto.getBranchName(),
                     branchDto.getAddress(),
                     branchDto.getAdminID()
             ));
         });
+        tblBranch.setItems(branchTms);
     }
 
 
@@ -234,6 +243,25 @@ public class BranchFormController {
         stage.setTitle("Update User");
         stage.show();
     }
+
+
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+        String keyword = txtSearch.getText().trim().toLowerCase();
+        if (keyword.isEmpty()) {
+            loadAllBranches();
+        } else {
+            FilteredList<BranchTm> filteredData = new FilteredList<>(tblBranch.getItems(), branchTm ->
+                    branchTm.getBranchId().toLowerCase().contains(keyword) ||
+                            branchTm.getBranchName().toLowerCase().contains(keyword) ||
+                            branchTm.getBranchAddress().toLowerCase().contains(keyword) ||
+                            branchTm.getAdminName().toLowerCase().contains(keyword)
+            );
+            tblBranch.setItems(filteredData);
+        }
+    }
+
 
 }
 

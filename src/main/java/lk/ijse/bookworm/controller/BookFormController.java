@@ -248,12 +248,10 @@ public class BookFormController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-            String keyword = txtSearch.getText().trim().toLowerCase(); // Get the keyword from the text field
+            String keyword = txtSearch.getText().trim().toLowerCase();
             if (keyword.isEmpty()) {
-                // If the search field is empty, show all books
                 loadAllBooks();
             } else {
-                // Filter the data based on the keyword
                 FilteredList<BookTm> filteredData = new FilteredList<>(tblBook.getItems(), bookTm ->
                         bookTm.getBookID().toLowerCase().contains(keyword) ||
                                 bookTm.getBookTitle().toLowerCase().contains(keyword) ||
@@ -261,9 +259,8 @@ public class BookFormController {
                                 bookTm.getGenre().toLowerCase().contains(keyword) ||
                                 bookTm.getAvailability().toLowerCase().contains(keyword)
                 );
-                tblBook.setItems(filteredData); // Set the filtered data to the table view
+                tblBook.setItems(filteredData);
             }
-
     }
 
 
