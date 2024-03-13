@@ -81,8 +81,6 @@ public class BranchFormController {
                         btn.setGraphic(delete);
                         btn.setCursor(javafx.scene.Cursor.HAND);
                         btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
-                        btn.setPrefHeight(30);
-                        btn.setPrefWidth(100);
 
 
                         btn.setOnAction(event -> {
@@ -131,9 +129,19 @@ public class BranchFormController {
             @Override
             public TableCell<BranchTm, String> call(final TableColumn<BranchTm, String> param) {
                 final TableCell<BranchTm, String> cell = new TableCell<>() {
-                    final MFXButton btn = new MFXButton("Update");
+                    final MFXButton btn = new MFXButton("");
 
                     {
+
+                        ImageView update = new ImageView(new Image("/assets/images/edit.png"));
+                        update.setFitHeight(30);
+                        update.setPreserveRatio(true);
+
+                        btn.setGraphic(update);
+                        btn.setCursor(javafx.scene.Cursor.HAND);
+                        btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
+
+
                         btn.setOnAction(event -> {
                             BranchTm tm = getTableView().getItems().get(getIndex());
                             //Catch the exception

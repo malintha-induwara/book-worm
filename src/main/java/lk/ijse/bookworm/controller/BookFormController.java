@@ -86,9 +86,6 @@ public class BookFormController {
                         btn.setGraphic(delete);
                         btn.setCursor(javafx.scene.Cursor.HAND);
                         btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
-                        btn.setPrefHeight(30);
-                        btn.setPrefWidth(100);
-
 
 
                         btn.setOnAction(event -> {
@@ -148,8 +145,7 @@ public class BookFormController {
                         btn.setGraphic(update);
                         btn.setCursor(javafx.scene.Cursor.HAND);
                         btn.setStyle("-fx-background-color: transparent; -fx-text-fill: white");
-                        btn.setPrefHeight(30);
-                        btn.setPrefWidth(100);
+
 
 
 
