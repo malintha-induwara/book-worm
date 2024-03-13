@@ -99,7 +99,7 @@ public class BranchDataFormController {
 
     private boolean validateFields() {
 
-        boolean isBranchIDValid = txtBranchID.getText().matches("[a-zA-Z]{3,}$");
+        boolean isBranchIDValid = txtBranchID.getText().matches("^BR[0-9]{3}$");
 
         if(!isBranchIDValid){
             txtBranchID.requestFocus();
@@ -109,7 +109,7 @@ public class BranchDataFormController {
 
         txtBranchID.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isBranchNameValid = txtBranchName.getText().matches("[a-zA-Z]{3,}$");
+        boolean isBranchNameValid = txtBranchName.getText().matches("^[a-zA-Z0-9 .-_&]+$");
 
         if(!isBranchNameValid){
             txtBranchName.requestFocus();
@@ -119,7 +119,7 @@ public class BranchDataFormController {
 
         txtBranchName.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isBranchAddressValid = txtBranchAddress.getText().matches("[a-zA-Z]{3,}$");
+        boolean isBranchAddressValid = txtBranchAddress.getText().matches("^[a-zA-Z0-9,._#()/:;]+$");
 
         if(!isBranchAddressValid){
             txtBranchAddress.requestFocus();
@@ -169,7 +169,7 @@ public class BranchDataFormController {
         txtBranchID.setText(branchDto.getBranchID());
         txtBranchName.setText(branchDto.getBranchName());
         txtBranchAddress.setText(branchDto.getAddress());
-        cmbAdmin.setValue(branchDto.getAdminID());
+        cmbAdmin.setText(branchDto.getAdminID());
 
         //Disable Email Field
         txtBranchID.setEditable(false);

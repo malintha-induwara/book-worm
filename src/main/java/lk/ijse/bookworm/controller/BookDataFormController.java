@@ -186,8 +186,7 @@ public class BookDataFormController {
         txtAuthor.setText(bookDto.getAuthor());
         txtGenre.setText(bookDto.getGenre());
         txtTitle.setText(bookDto.getTitle());
-        colBranch.setValue(bookDto.getBranchID());
-
+        colBranch.setText(bookDto.getBranchID());
 
         txtBookId.setEditable(false);
     }

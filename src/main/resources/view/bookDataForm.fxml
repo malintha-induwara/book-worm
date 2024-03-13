@@ -40,7 +40,7 @@
       <MFXTextField fx:id="txtGenre" floatMode="DISABLED" layoutX="191.0" layoutY="313.0" prefHeight="45.0" prefWidth="197.0" styleClass="mfx-text-field" stylesheets="@../assets/css/PopUpStyles.css" />
       <MFXButton fx:id="btnAction" layoutX="87.0" layoutY="467.0" onAction="#btnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PopUpStyles.css" text="Add" />
       <MFXButton layoutX="244.0" layoutY="467.0" onAction="#btnCancelOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-cancel" stylesheets="@../assets/css/PopUpStyles.css" text="Cancel" />
-      <MFXComboBox fx:id="colBranch" layoutX="191.0" layoutY="384.0" prefHeight="47.0" prefWidth="197.0" />
+      <MFXComboBox fx:id="colBranch" floatMode="BORDER" layoutX="191.0" layoutY="384.0" prefHeight="47.0" prefWidth="197.0" />
       <Label fx:id="lblAction" layoutX="49.0" layoutY="38.0" styleClass="label-title" text="Add">
          <font>
             <Font size="30.0" />

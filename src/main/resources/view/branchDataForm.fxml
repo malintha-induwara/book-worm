@@ -39,6 +39,6 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <MFXComboBox fx:id="cmbAdmin" floatMode="DISABLED" layoutX="191.0" layoutY="345.0" prefHeight="45.0" prefWidth="197.0" />
+      <MFXComboBox fx:id="cmbAdmin" floatMode="BORDER" layoutX="191.0" layoutY="345.0" prefHeight="45.0" prefWidth="197.0" />
    </children>
 </AnchorPane>
