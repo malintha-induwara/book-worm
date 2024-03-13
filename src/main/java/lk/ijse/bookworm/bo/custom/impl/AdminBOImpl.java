@@ -13,7 +13,7 @@ import java.util.List;
 public class AdminBOImpl implements AdminBO {
 
 
-    public static Admin admin;
+    public static Admin loggedAdmin;
 
     public static Circle circleImg;
 
@@ -55,7 +55,7 @@ public class AdminBOImpl implements AdminBO {
         Admin search = adminDAO.search(dto.getUsername());
         if (search != null) {
             if (search.getPassword().equals(dto.getPassword())) {
-                admin=search;
+                loggedAdmin =search;
                 return true;
             }
         }

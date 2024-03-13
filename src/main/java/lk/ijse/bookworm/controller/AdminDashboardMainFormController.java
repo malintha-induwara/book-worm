@@ -60,8 +60,8 @@ public class AdminDashboardMainFormController {
     private void setAdminNameAndImage(boolean flag) {
         imgAndNameHolderPane.setVisible(flag);
         Platform.runLater(() -> {
-            idAdminName.setText(AdminBOImpl.admin.getUsername());
-            Image image = new Image(AdminBOImpl.admin.getImgUrl());
+            idAdminName.setText(AdminBOImpl.loggedAdmin.getUsername());
+            Image image = new Image(AdminBOImpl.loggedAdmin.getImgUrl());
             cirAdminImage.setFill(new ImagePattern(image));
 
         });
@@ -70,7 +70,6 @@ public class AdminDashboardMainFormController {
 
 
     private void loadAdminDashBoardForm() throws IOException {
-        setAdminNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminDashBoardForm.fxml"));
         Pane dashboardPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();

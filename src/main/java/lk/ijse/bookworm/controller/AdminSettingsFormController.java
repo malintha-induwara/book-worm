@@ -49,10 +49,10 @@ public class AdminSettingsFormController {
     }
 
     private void loadDetails() {
-        txtUsername.setText(AdminBOImpl.admin.getUsername());
-        txtPassword.setText(AdminBOImpl.admin.getPassword());
+        txtUsername.setText(AdminBOImpl.loggedAdmin.getUsername());
+        txtPassword.setText(AdminBOImpl.loggedAdmin.getPassword());
         Platform.runLater(() -> {
-            Image image = new Image(AdminBOImpl.admin.getImgUrl());
+            Image image = new Image(AdminBOImpl.loggedAdmin.getImgUrl());
             circleImg.setFill(new ImagePattern(image));
         });
     }
@@ -84,9 +84,9 @@ public class AdminSettingsFormController {
     }
 
     private void updateAdminDetails(AdminDto adminDto) {
-        AdminBOImpl.admin.setUsername(adminDto.getUsername());
-        AdminBOImpl.admin.setPassword(adminDto.getPassword());
-        AdminBOImpl.admin.setImgUrl(adminDto.getImgUrl());
+        AdminBOImpl.loggedAdmin.setUsername(adminDto.getUsername());
+        AdminBOImpl.loggedAdmin.setPassword(adminDto.getPassword());
+        AdminBOImpl.loggedAdmin.setImgUrl(adminDto.getImgUrl());
     }
 
     private String imageSave() {
