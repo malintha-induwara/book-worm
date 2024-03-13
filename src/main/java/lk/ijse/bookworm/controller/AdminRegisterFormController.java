@@ -126,7 +126,7 @@ public class AdminRegisterFormController {
 
     private boolean validateRegister() {
 
-        boolean isUserNameValid = txtUsername.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isUserNameValid = txtUsername.getText().matches("^[a-zA-Z0-9._]{3,}$");
         if (!isUserNameValid) {
             txtUsername.requestFocus();
             txtUsername.getStyleClass().add("mfx-text-field-error");
@@ -135,7 +135,7 @@ public class AdminRegisterFormController {
 
         txtUsername.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
 
         if (!isPasswordValid) {
             txtPassword.requestFocus();
@@ -145,7 +145,7 @@ public class AdminRegisterFormController {
 
         txtPassword.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isConfirmPasswordValid = txtConfirmPassword.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isConfirmPasswordValid = txtConfirmPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
 
         if (!isConfirmPasswordValid) {
             txtConfirmPassword.requestFocus();

@@ -123,7 +123,7 @@ public class AdminSettingsFormController {
     }
 
     private boolean validateRegister() {
-        boolean isUserNameValid =txtUsername.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isUserNameValid =txtUsername.getText().matches("^[a-zA-Z0-9._]{3,}$");
         if (!isUserNameValid) {
             txtUsername.requestFocus();
             txtUsername.getStyleClass().add("mfx-text-field-details-error");
@@ -132,7 +132,7 @@ public class AdminSettingsFormController {
 
         txtUsername.getStyleClass().remove("mfx-text-field-details-error");
 
-        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
 
         if (!isPasswordValid) {
             txtPassword.requestFocus();

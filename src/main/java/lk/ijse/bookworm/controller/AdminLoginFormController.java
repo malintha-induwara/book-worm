@@ -89,7 +89,7 @@ public class AdminLoginFormController {
 
     private boolean validateLogin() {
 
-        boolean isUsernameValid = txtUsername.getText().matches("^[A-z][A-z0-9]{3,15}$");
+        boolean isUsernameValid = txtUsername.getText().matches("^[a-zA-Z0-9._]{3,}$");
 
         if (!isUsernameValid) {
             txtUsername.requestFocus();
@@ -99,7 +99,7 @@ public class AdminLoginFormController {
 
         txtUsername.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isPasswordValid = txtPassword.getText().matches("^[A-z][A-z0-9]{3,15}$");
+        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
 
         if (!isPasswordValid) {
             txtPassword.requestFocus();
