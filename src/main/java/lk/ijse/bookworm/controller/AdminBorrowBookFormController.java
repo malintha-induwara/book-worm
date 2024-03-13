@@ -1,10 +1,8 @@
 package lk.ijse.bookworm.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXDatePicker;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,22 +12,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.util.Callback;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
-import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.dto.BorrowBookDto;
-import lk.ijse.bookworm.tm.BookTm;
 import lk.ijse.bookworm.tm.BorrowBookTm;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class BorrowBookFormController {
+public class AdminBorrowBookFormController {
 
 
     @FXML

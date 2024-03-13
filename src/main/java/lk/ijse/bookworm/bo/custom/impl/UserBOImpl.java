@@ -1,5 +1,6 @@
 package lk.ijse.bookworm.bo.custom.impl;
 
+import javafx.scene.shape.Circle;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dao.DAOFactory;
 import lk.ijse.bookworm.dao.custom.UserDAO;
@@ -11,6 +12,10 @@ import java.util.List;
 
 public class UserBOImpl implements UserBO {
 
+
+    public static Circle circleImg;
+
+    public static User loggedUser;
 
 
     UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);

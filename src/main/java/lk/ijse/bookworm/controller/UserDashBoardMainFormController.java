@@ -28,10 +28,16 @@ public class UserDashBoardMainFormController {
     private AnchorPane holderPane;
 
 
-    public void initialize() {
-
+    public void initialize() throws IOException {
+        loadBookSearchForm();
     }
 
+    private void loadBookSearchForm() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/bookSearchForm.fxml"));
+        Pane bookSearchPane = (Pane) fxmlLoader.load();
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(bookSearchPane);
+    }
 
     @FXML
     void btnBookSearchOnAction(ActionEvent event) throws IOException {
@@ -43,7 +49,7 @@ public class UserDashBoardMainFormController {
 
     @FXML
     void btnHistoryOnAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/historyForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userBorrowBookForm.fxml"));
         Pane historyPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(historyPane);

@@ -89,7 +89,7 @@ public class AdminDashboardMainFormController {
     @FXML
     void btnBorrowBookOnAction(ActionEvent event) throws IOException {
         setAdminNameAndImage(true);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/borrowBookForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminBorrowBookForm.fxml"));
         Pane borrowBookPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(borrowBookPane);

@@ -83,7 +83,7 @@ public class UserLoginFormController {
 
     @FXML
     void btnRegister(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userRegisterForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userImageForm.fxml"));
         Pane registerPane = (Pane) fxmlLoader.load();
         loginPane.getChildren().clear();
         loginPane.getChildren().add(registerPane);

@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="680.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.BookSearchFormController">
-
+   <children>
+      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Book Search">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblBook" focusTraversable="false" layoutX="27.0" layoutY="202.0" prefHeight="428.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="92.0" style="-fx-alignment: center;" text="ID" />
+            <TableColumn fx:id="colTitle" prefWidth="168.0" style="-fx-alignment: center;" text="Title" />
+            <TableColumn fx:id="colAuthor" prefWidth="169.0" style="-fx-alignment: center;" text="Author" />
+            <TableColumn fx:id="colGenre" prefWidth="167.0" style="-fx-alignment: center;" text="Genre" />
+            <TableColumn fx:id="colAvailability" prefWidth="152.0" style="-fx-alignment: center;" text="Available" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
