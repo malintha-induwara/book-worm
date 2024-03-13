@@ -88,7 +88,7 @@ public class UserSettingsFormController {
         String imgUrl = imageSave();
 
         UserDto userDto = new UserDto(txtEmail.getText(), txtName.getText(), txtAddress.getText(), txtPassword.getText(), imgUrl);
-        boolean isSaved = userBO.updateUser(userDto);
+        boolean isSaved = userBO.updateUserAndImg(userDto);
 
         if (isSaved) {
             updateUserDetails(userDto);

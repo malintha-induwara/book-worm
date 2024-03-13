@@ -45,6 +45,11 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
+    public boolean updateUserAndImg(UserDto dto) {
+        return userDAO.update(new User(dto.getEmail(),dto.getName(),dto.getAddress(),dto.getPassword(),dto.getImgUrl()));
+    }
+
+    @Override
     public boolean deleteUser(String id) {
         return userDAO.delete(id);
     }

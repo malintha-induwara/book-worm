@@ -9,6 +9,7 @@ public interface UserBO extends SuperBO {
     List<UserDto> getAllUsers();
     boolean saveUser(UserDto dto);
     boolean updateUser(UserDto dto);
+    boolean updateUserAndImg(UserDto dto);
     boolean deleteUser(String id);
     UserDto searchUser(String id);
     boolean isUserExist(UserDto userDto);
