@@ -2,9 +2,9 @@ package lk.ijse.bookworm.dto;
 
 public class BookDto {
     private  String bookId;
+    private String title;
     private String author;
     private String genre;
-    private String title;
     private boolean availability;
 
     private String branchID;
@@ -13,7 +13,7 @@ public class BookDto {
     }
 
 
-    public BookDto(String bookId, String author, String genre, String title, String branchID) {
+    public BookDto(String bookId,  String title,String author, String genre, String branchID) {
         this.bookId = bookId;
         this.author = author;
         this.genre = genre;
@@ -22,7 +22,7 @@ public class BookDto {
     }
 
 
-    public BookDto(String bookId, String author, String genre, String title, boolean availability, String branchID) {
+    public BookDto(String bookId, String title,String author, String genre, boolean availability, String branchID) {
         this.bookId = bookId;
         this.author = author;
         this.genre = genre;

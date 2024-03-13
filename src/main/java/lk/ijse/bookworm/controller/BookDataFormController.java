@@ -79,7 +79,7 @@ public class BookDataFormController {
         }
 
         if (btnAction.getText().equals("Add")){
-            BookDto dto = new BookDto(txtBookId.getText(),txtAuthor.getText(),txtGenre.getText(),txtTitle.getText(),true,colBranch.getValue());
+            BookDto dto = new BookDto(txtBookId.getText(),txtTitle.getText(),txtAuthor.getText(),txtGenre.getText(),true,colBranch.getValue());
             boolean isSaved = bookBO.saveBook(dto);
 
             if (isSaved){
@@ -93,7 +93,7 @@ public class BookDataFormController {
             }
 
         }else {
-            BookDto dto = new BookDto(txtBookId.getText(),txtAuthor.getText(),txtGenre.getText(),txtTitle.getText(),colBranch.getValue());
+            BookDto dto = new BookDto(txtBookId.getText(),txtTitle.getText(),txtAuthor.getText(),txtGenre.getText(),colBranch.getValue());
             boolean isUpdated = bookBO.updateBook(dto);
 
             if (isUpdated){

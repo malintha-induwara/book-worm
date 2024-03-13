@@ -22,9 +22,9 @@ public class BookBOImpl implements BookBO {
         for (Book book : bookDAO.getAll()){
             bookDtoList.add(new BookDto(
                     book.getBookID(),
+                    book.getTitle(),
                     book.getAuthor(),
                     book.getGenre(),
-                    book.getTitle(),
                     book.isAvailable(),
                     book.getBranch().getBranchID()));
         }
@@ -55,9 +55,9 @@ public class BookBOImpl implements BookBO {
         Book book = bookDAO.search(id);
         if (book != null){
             return new BookDto(book.getBookID(),
+                    book.getTitle(),
                     book.getAuthor(),
                     book.getGenre(),
-                    book.getTitle(),
                     book.isAvailable(),
                     book.getBranch().getBranchID()
             );
