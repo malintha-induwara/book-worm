@@ -14,9 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.UserBO;
-import lk.ijse.bookworm.bo.custom.impl.AdminBOImpl;
 import lk.ijse.bookworm.bo.custom.impl.UserBOImpl;
-import lk.ijse.bookworm.dao.custom.impl.UserDAOImpl;
 import lk.ijse.bookworm.dto.UserDto;
 
 import java.io.File;
@@ -40,7 +38,7 @@ public class UserRegisterFormController {
     private MFXPasswordField txtPassword;
 
     @FXML
-    private MFXTextField txtUsername;
+    private MFXTextField txtEmail;
 
     @FXML
     private MFXTextField txtName;
@@ -75,7 +73,7 @@ public class UserRegisterFormController {
 
         String imgUrl = imageSave();
 
-        UserDto userDto = new UserDto(txtUsername.getText(),txtName.getText(),txtAddress.getText(),txtPassword.getText(),imgUrl);
+        UserDto userDto = new UserDto(txtEmail.getText(),txtName.getText(),txtAddress.getText(),txtPassword.getText(),imgUrl);
         boolean isSaved = userBO.saveUser(userDto);
 
         if (isSaved) {
@@ -96,7 +94,7 @@ public class UserRegisterFormController {
     private void clearFields() {
         txtName.clear();
         txtAddress.clear();
-        txtUsername.clear();
+        txtEmail.clear();
         txtPassword.clear();
         txtConfirmPassword.clear();
     }
@@ -136,7 +134,7 @@ public class UserRegisterFormController {
 
     private boolean validateRegister() {
 
-        boolean isNameValid = txtName.getText().matches("^[a-zA-Z]{3,}$");
+        boolean isNameValid = txtName.getText().matches("^[\\p{L} '-]+$");
         if (!isNameValid) {
             txtName.requestFocus();
             txtName.getStyleClass().add("mfx-text-field-error");
@@ -146,7 +144,7 @@ public class UserRegisterFormController {
         txtName.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isAddressValid = txtAddress.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isAddressValid = txtAddress.getText().matches("^[a-zA-Z0-9,._#()/:;]+$");
 
         if (!isAddressValid) {
             txtAddress.requestFocus();
@@ -157,16 +155,16 @@ public class UserRegisterFormController {
         txtAddress.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isUserNameValid = txtUsername.getText().matches("^[a-zA-Z0-9]{3,}$");
-        if (!isUserNameValid) {
-            txtUsername.requestFocus();
-            txtUsername.getStyleClass().add("mfx-text-field-error");
+        boolean isEmailValid = txtEmail.getText().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+        if (!isEmailValid) {
+            txtEmail.requestFocus();
+            txtEmail.getStyleClass().add("mfx-text-field-error");
             return false;
         }
 
-        txtUsername.getStyleClass().remove("mfx-text-field-error");
+        txtEmail.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9]{3,}$");
+        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
 
         if (!isPasswordValid) {
             txtPassword.requestFocus();

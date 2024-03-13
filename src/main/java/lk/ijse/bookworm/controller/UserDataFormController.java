@@ -94,7 +94,7 @@ public class UserDataFormController {
 
     private boolean validateFields() {
 
-        boolean isEmailValid = txtEmail.getText().matches("^[a-zA-Z]{3,}$");
+        boolean isEmailValid = txtEmail.getText().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
         if (!isEmailValid) {
             txtEmail.requestFocus();
             txtEmail.getStyleClass().add("mfx-text-field-error");
@@ -103,7 +103,7 @@ public class UserDataFormController {
 
         txtEmail.getStyleClass().remove("mfx-text-field-error");
 
-        boolean isNameValid = txtName.getText().matches("^[a-zA-Z]{3,}$");
+        boolean isNameValid = txtName.getText().matches("^[\\p{L} '-]+$");
         if (!isNameValid) {
             txtName.requestFocus();
             txtName.getStyleClass().add("mfx-text-field-error");
@@ -114,7 +114,7 @@ public class UserDataFormController {
 
 
 
-        boolean isAddressValid = txtAddress.getText().matches("^[a-zA-Z]{3,}$");
+        boolean isAddressValid = txtAddress.getText().matches("^[a-zA-Z0-9,._#()/:;]+$");
         if (!isAddressValid) {
             txtAddress.requestFocus();
             txtAddress.getStyleClass().add("mfx-text-field-error");
@@ -124,7 +124,7 @@ public class UserDataFormController {
         txtAddress.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z]{3,}$");
+        boolean isPasswordValid = txtPassword.getText().matches("^[a-zA-Z0-9@#]{3,}$");
         if (!isPasswordValid) {
             txtPassword.requestFocus();
             txtPassword.getStyleClass().add("mfx-text-field-error");

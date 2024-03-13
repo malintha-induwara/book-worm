@@ -27,7 +27,7 @@ public class UserLoginFormController {
     private MFXPasswordField txtPassword;
 
     @FXML
-    private MFXTextField txtUsername;
+    private MFXTextField txtEmail;
 
     @FXML
     private AnchorPane loginPane;
@@ -49,14 +49,14 @@ public class UserLoginFormController {
             return;
         }
 
-        UserDto userDto = new UserDto(txtUsername.getText(), txtPassword.getText());
+        UserDto userDto = new UserDto(txtEmail.getText(), txtPassword.getText());
 
         boolean isUserExist= userBO.isUserExist(userDto);
 
         if (!isUserExist){
             new Alert(Alert.AlertType.ERROR, "Invalid Username or Password").show();
             //Highlight Fields
-            txtUsername.getStyleClass().add("mfx-text-field-error");
+            txtEmail.getStyleClass().add("mfx-text-field-error");
             txtPassword.getStyleClass().add("mfx-text-field-error");
             return;
         }
@@ -67,7 +67,7 @@ public class UserLoginFormController {
     }
 
     private void clearFields() {
-        txtUsername.clear();
+        txtEmail.clear();
         txtPassword.clear();
     }
 
@@ -87,17 +87,17 @@ public class UserLoginFormController {
 
     private boolean validateLogin() {
 
-        boolean isUserNameValid = Pattern.matches("^[a-zA-Z0-9]{3,}$", txtUsername.getText());
-        if (!isUserNameValid) {
-            txtUsername.requestFocus();
-            txtUsername.getStyleClass().add("mfx-text-field-error");
+        boolean isEmailValid = Pattern.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", txtEmail.getText());
+        if (!isEmailValid) {
+            txtEmail.requestFocus();
+            txtEmail.getStyleClass().add("mfx-text-field-error");
             return false;
         }
 
-        txtUsername.getStyleClass().remove("mfx-text-field-error");
+        txtEmail.getStyleClass().remove("mfx-text-field-error");
 
 
-        boolean isPasswordValid = Pattern.matches("^[a-zA-Z0-9]{3,}$", txtPassword.getText());
+        boolean isPasswordValid = Pattern.matches("^[a-zA-Z0-9@#]{3,}$", txtPassword.getText());
         if (!isPasswordValid) {
             txtPassword.requestFocus();
             txtPassword.getStyleClass().add("mfx-text-field-error");

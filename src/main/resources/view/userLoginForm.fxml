@@ -30,7 +30,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="115.0" layoutY="267.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
+      <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" layoutX="115.0" layoutY="267.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
       <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="115.0" layoutY="351.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field" />
       <MFXButton layoutX="195.0" layoutY="439.0" onAction="#btnLogin" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-login" text="LOGIN" />
       <Line endX="125.0" layoutX="114.0" layoutY="513.0" startX="44.0" strokeWidth="0.4" />
