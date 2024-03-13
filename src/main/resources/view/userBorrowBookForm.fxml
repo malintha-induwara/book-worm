@@ -17,10 +17,11 @@
    <children>
       <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="204.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
          <columns>
-            <TableColumn fx:id="colID" prefWidth="169.0" style="-fx-alignment: center;" text="ID" />
-            <TableColumn fx:id="colBookID" prefWidth="200.0" style="-fx-alignment: center;" text="BookID" />
-            <TableColumn fx:id="colBorrowDate" prefWidth="193.0" style="-fx-alignment: center;" text="Borrow Date" />
-            <TableColumn fx:id="colReturnDate" prefWidth="186.0" style="-fx-alignment: center;" text="Return Date" />
+            <TableColumn fx:id="colID" prefWidth="121.0" style="-fx-alignment: center;" text="ID" />
+            <TableColumn fx:id="colBookID" prefWidth="181.0" style="-fx-alignment: center;" text="BookID" />
+            <TableColumn fx:id="colBorrowDate" prefWidth="167.0" style="-fx-alignment: center;" text="Borrow Date" />
+            <TableColumn fx:id="colReturnDate" prefWidth="140.0" style="-fx-alignment: center;" text="Return Date" />
+            <TableColumn fx:id="colReturned" prefWidth="140.0" style="-fx-alignment: center;" text="Returned" />
          </columns>
       </TableView>
       <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Borrow Books">
