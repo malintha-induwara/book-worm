@@ -28,19 +28,20 @@ public class UserBOImpl implements UserBO {
             userDtoList.add(new UserDto(user.getEmail(),
                     user.getName(),
                     user.getAddress(),
-                    user.getPassword()));
+                    user.getPassword(), user.getImgUrl()));
         }
         return userDtoList;
     }
 
     @Override
     public boolean saveUser(UserDto dto) {
-        return userDAO.save(new User(dto.getEmail(),dto.getName(),dto.getAddress(),dto.getPassword()));
+        return userDAO.save(new User(dto.getEmail(),dto.getName(),dto.getAddress(),dto.getPassword(),dto.getImgUrl()));
     }
 
     @Override
     public boolean updateUser(UserDto dto) {
-        return userDAO.update(new User(dto.getEmail(),dto.getName(),dto.getAddress(),dto.getPassword()));
+        User user = userDAO.search(dto.getEmail());
+        return userDAO.update(new User(dto.getEmail(),dto.getName(),dto.getAddress(),dto.getPassword(),user.getImgUrl()));
     }
 
     @Override
@@ -55,7 +56,7 @@ public class UserBOImpl implements UserBO {
             return new UserDto(user.getEmail(),
                     user.getName(),
                     user.getAddress(),
-                    user.getPassword());
+                    user.getPassword(),user.getImgUrl());
         }
         return null;
     }

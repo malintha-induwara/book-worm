@@ -24,6 +24,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+
+    private String imgUrl;
+
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
     private List<BookTransactions> bookTransactions = new ArrayList<>();
 
@@ -31,11 +34,12 @@ public class User {
     public User() {
     }
 
-    public User(String email, String name, String address, String password) {
+    public User(String email, String name, String address, String password, String imgUrl) {
         this.email = email;
         this.name = name;
         this.address = address;
         this.password = password;
+        this.imgUrl = imgUrl;
     }
 
     public String getEmail() {
@@ -70,6 +74,14 @@ public class User {
         this.password = password;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public List<BookTransactions> getBookTransactions() {
         return bookTransactions;
     }
@@ -85,7 +97,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
-                ", bookTransactions=" + bookTransactions +
+                ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
 }

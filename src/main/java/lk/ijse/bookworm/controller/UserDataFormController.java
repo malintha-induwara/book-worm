@@ -53,9 +53,8 @@ public class UserDataFormController {
             return;
         }
 
-
         if (btnAction.getText().equals("Add")) {
-            UserDto userDto = new UserDto(txtEmail.getText(), txtName.getText(), txtAddress.getText(), txtPassword.getText());
+            UserDto userDto = new UserDto(txtEmail.getText(), txtName.getText(), txtAddress.getText(), txtPassword.getText(),"assets/images/addUserImage.png");
             boolean isSaved = userBO.saveUser(userDto);
 
             if (isSaved) {

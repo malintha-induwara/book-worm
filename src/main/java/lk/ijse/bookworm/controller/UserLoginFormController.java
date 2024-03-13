@@ -42,7 +42,6 @@ public class UserLoginFormController {
 //            return;
 //        }
 
-
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/userDashBoardMainForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

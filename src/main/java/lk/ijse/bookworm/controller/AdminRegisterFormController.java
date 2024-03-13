@@ -112,7 +112,7 @@ public class AdminRegisterFormController {
     }
 
     private void loadLoginPane() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userLoginForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/adminLoginForm.fxml"));
         Pane loginPane = (Pane) fxmlLoader.load();
         registerPane.getChildren().clear();
         registerPane.getChildren().add(loginPane);

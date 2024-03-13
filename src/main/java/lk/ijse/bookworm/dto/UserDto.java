@@ -10,8 +10,20 @@ public class UserDto {
 
     private String password;
 
+    private String imgUrl;
+
+
     public UserDto() {
     }
+
+    public UserDto(String email, String name, String address, String password, String imgUrl) {
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.password = password;
+        this.imgUrl = imgUrl;
+    }
+
 
     public UserDto(String email, String name, String address, String password) {
         this.email = email;
@@ -19,7 +31,6 @@ public class UserDto {
         this.address = address;
         this.password = password;
     }
-
     public String getEmail() {
         return email;
     }
@@ -52,6 +63,14 @@ public class UserDto {
         this.password = password;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public String toString() {
         return "UserDto{" +
@@ -59,6 +78,7 @@ public class UserDto {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
 }
