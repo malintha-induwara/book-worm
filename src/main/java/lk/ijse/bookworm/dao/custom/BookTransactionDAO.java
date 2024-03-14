@@ -9,5 +9,4 @@ public interface BookTransactionDAO extends CrudDAO<BookTransactions> {
 
     List<BookTransactions> getAllLateBookDetails();
 
-
 }

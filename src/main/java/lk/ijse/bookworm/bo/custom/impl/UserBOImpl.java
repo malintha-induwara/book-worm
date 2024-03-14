@@ -77,5 +77,17 @@ public class UserBOImpl implements UserBO {
         }
         return false;
     }
+
+    @Override
+    public List<UserDto> getUsersWithOverdueBooks() {
+        List<UserDto> userDtoList = new ArrayList<>();
+        for (User user : userDAO.getUsersWithOverdueBooks()) {
+            userDtoList.add(new UserDto(user.getEmail(),
+                    user.getName(),
+                    user.getAddress(),
+                    user.getPassword(), user.getImgUrl()));
+        }
+        return userDtoList;
+    }
 }
 

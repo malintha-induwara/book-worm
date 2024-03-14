@@ -108,12 +108,9 @@ public class Test {
 //        bookTransactionBO.deleteBorrowedBook("3");
 
 
+        List<User> usersWithOverdueBooks = userDAO.getUsersWithOverdueBooks();
 
-
-
-
-
-
+        System.out.println(usersWithOverdueBooks.size());
 
 
     }

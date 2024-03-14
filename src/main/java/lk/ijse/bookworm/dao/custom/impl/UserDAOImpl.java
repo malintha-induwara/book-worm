@@ -97,5 +97,15 @@ public class UserDAOImpl implements UserDAO {
             session.close();
         }
     }
+
+    @Override
+    public List<User> getUsersWithOverdueBooks() {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        String hql = "SELECT u FROM User u JOIN u.bookTransactions t WHERE t.returnDate < CURRENT_DATE AND t.isReturned = false";
+        Query query = session.createQuery(hql);
+        List<User> users = query.list();
+        session.close();
+        return users;
+    }
 }
 
