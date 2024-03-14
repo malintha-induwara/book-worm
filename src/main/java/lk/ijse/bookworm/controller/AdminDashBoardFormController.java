@@ -7,7 +7,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bookworm.bo.BOFactory;
+import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
+import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.BorrowBookDto;
 import lk.ijse.bookworm.tm.LateBookDetailTm;
 
@@ -53,11 +55,22 @@ public class AdminDashBoardFormController {
 
 
     BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);
-
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
+    BookBO bookBO = (BookBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK);
 
     public void initialize(){
         setCellValueFactory();
         loadLateBookDetails();
+        setLabelValues();
+    }
+
+    private void setLabelValues() {
+        //Set User Count
+        lblUserCount.setText(Integer.toString(userBO.getAllUsers().size()));
+        //Set Book Count
+        lblBookCount.setText(Integer.toString(bookBO.getAllBooks().size()));
+        //Set Due Book Count
+        lblDueBookCount.setText(Integer.toString(bookTransactionBO.getAllLateBookDetails().size()));
     }
 
     private void setCellValueFactory() {
@@ -80,9 +93,7 @@ public class AdminDashBoardFormController {
                     borrowBookDto.getBookId(),
                     borrowBookDto.getBorrowDate(),
                     borrowBookDto.getReturnDate(),
-                    Integer.toString(
-                            LocalDate.parse(borrowBookDto.getReturnDate()).compareTo(LocalDate.parse(borrowBookDto.getBorrowDate())
-                            ))
+                    Integer.toString(LocalDate.now().compareTo(LocalDate.parse(borrowBookDto.getReturnDate())))
             ));
         }
     }

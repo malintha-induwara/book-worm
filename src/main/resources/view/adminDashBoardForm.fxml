@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="dashBoardPane" prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AdminDashBoardFormController">
    <children>
-      <Pane layoutX="27.0" layoutY="130.0" prefHeight="190.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
+      <Pane layoutX="28.0" layoutY="130.0" prefHeight="190.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
          <effect>
             <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
                <color>
