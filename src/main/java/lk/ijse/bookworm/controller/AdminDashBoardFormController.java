@@ -11,10 +11,14 @@ import lk.ijse.bookworm.bo.custom.BookBO;
 import lk.ijse.bookworm.bo.custom.BookTransactionBO;
 import lk.ijse.bookworm.bo.custom.UserBO;
 import lk.ijse.bookworm.dto.BorrowBookDto;
+import lk.ijse.bookworm.dto.UserDto;
 import lk.ijse.bookworm.tm.LateBookDetailTm;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AdminDashBoardFormController {
 
@@ -86,10 +90,20 @@ public class AdminDashBoardFormController {
 
         List<BorrowBookDto> allLateBookDetails = bookTransactionBO.getAllLateBookDetails();
 
+        List<UserDto> allLateUsers = userBO.getUsersWithOverdueBooks();
+
+//        Map<String, String> userIdToNameMap = allLateUsers.stream().collect(Collectors.toMap(UserDto::getEmail, UserDto::getName));
+
+        Map<String, String> userIdToNameMap = new HashMap<>();
+        for (UserDto user : allLateUsers) {
+            userIdToNameMap.put(user.getEmail(), user.getName());
+        }
+
         for (BorrowBookDto borrowBookDto : allLateBookDetails) {
+            String userName = userIdToNameMap.get(borrowBookDto.getUserId());
             tblBorrowBook.getItems().add(new LateBookDetailTm(
                     borrowBookDto.getId(),
-                    borrowBookDto.getUserId(),
+                    userName,
                     borrowBookDto.getBookId(),
                     borrowBookDto.getBorrowDate(),
                     borrowBookDto.getReturnDate(),
