@@ -1,6 +1,7 @@
 package lk.ijse.bookworm.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +41,15 @@ public class AdminDashBoardFormController {
 
     @FXML
     private TableView<LateBookDetailTm> tblBorrowBook;
+
+    @FXML
+    private Label lblBookCount;
+
+    @FXML
+    private Label lblDueBookCount;
+
+    @FXML
+    private Label lblUserCount;
 
 
     BookTransactionBO bookTransactionBO = (BookTransactionBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.BOOK_TRANSACTION);

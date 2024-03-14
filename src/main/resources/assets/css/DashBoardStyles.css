@@ -31,6 +31,20 @@
     -fx-background-radius: 15 15 15 15;
 
 }
+.pane-dashboard-card-gradiant{
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-color:  linear-gradient(to right top, #0984E3, #86A8E7,#5FFBF1);
+    -fx-text-fill:  #FFFFFF;
+}
+
+.lbl-dashboard-card-title{
+    -fx-font-family: 'Open Sans SemiBold';
+    -fx-text-fill: #3d3d3d;
+}
+.lbl-dashboard-card-title-gradiant{
+    -fx-font-family: 'Open Sans SemiBold';
+    -fx-text-fill: #e8e8e8;
+}
 
 
 
