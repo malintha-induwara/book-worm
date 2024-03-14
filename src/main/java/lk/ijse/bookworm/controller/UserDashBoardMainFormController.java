@@ -59,6 +59,7 @@ public class UserDashBoardMainFormController {
     }
 
     private void loadBookSearchForm() throws IOException {
+        setButtonColors(Pages.BOOK_SEARCH);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/bookSearchForm.fxml"));
         Pane bookSearchPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
@@ -67,6 +68,7 @@ public class UserDashBoardMainFormController {
 
     @FXML
     void btnBookSearchOnAction(ActionEvent event) throws IOException {
+        setButtonColors(Pages.BOOK_SEARCH);
         setUserNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/bookSearchForm.fxml"));
         Pane bookSearchPane = (Pane) fxmlLoader.load();
@@ -76,6 +78,7 @@ public class UserDashBoardMainFormController {
 
     @FXML
     void btnBorrowBookOnAction(ActionEvent event) throws IOException {
+        setButtonColors(Pages.BORROW_BOOK);
         setUserNameAndImage(true);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userBorrowBookForm.fxml"));
         Pane historyPane = (Pane) fxmlLoader.load();
@@ -100,12 +103,38 @@ public class UserDashBoardMainFormController {
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
+        setButtonColors(Pages.SETTINGS);
         setUserNameAndImage(false);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/userSettingsForm.fxml"));
         Pane userSettingsPane = (Pane) fxmlLoader.load();
         holderPane.getChildren().clear();
         holderPane.getChildren().add(userSettingsPane);
     }
+
+    public enum Pages{
+        BOOK_SEARCH,BORROW_BOOK,SETTINGS
+    }
+
+    private void setButtonColors(Pages pages){
+        btnBookSearch.getStyleClass().remove("mfx-button-BookSearch-active");
+        btnBorrowBook.getStyleClass().remove("mfx-button-BookHistory-active");
+        btnSetting.getStyleClass().remove("mfx-button-Settings-active");
+
+        switch (pages){
+            case BOOK_SEARCH:
+               btnBookSearch.getStyleClass().add("mfx-button-BookSearch-active");
+                break;
+            case BORROW_BOOK:
+                btnBorrowBook.getStyleClass().add("mfx-button-BookHistory-active");
+                break;
+            case SETTINGS:
+                btnSetting.getStyleClass().add("mfx-button-Settings-active");
+                break;
+        }
+    }
+
+
+
 
 }
 
