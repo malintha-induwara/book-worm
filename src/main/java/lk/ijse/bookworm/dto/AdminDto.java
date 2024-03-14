@@ -1,5 +1,7 @@
 package lk.ijse.bookworm.dto;
 
+import lk.ijse.bookworm.entity.Admin;
+
 public class AdminDto {
 
     private String username;
@@ -46,5 +48,11 @@ public class AdminDto {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+    public Admin getEntity(){
+        return new Admin(this.username,this.password,this.imgUrl);
+    }
+
+
 }
 

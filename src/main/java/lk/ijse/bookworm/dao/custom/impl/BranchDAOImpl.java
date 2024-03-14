@@ -11,9 +11,16 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class BranchDAOImpl implements BranchDAO {
+
+    private Session session;
+
+
+    @Override
+    public void setSession(Session session) {
+        this.session = session;
+    }
     @Override
     public List<Branch> getAll() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
         String hql = "FROM Branch ";
         Query query = session.createQuery(hql);
         List<Branch> branchList = query.list();
@@ -22,65 +29,23 @@ public class BranchDAOImpl implements BranchDAO {
     }
 
     @Override
-    public boolean save(Branch entity) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.save(entity);
-            transaction.commit();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void save(Branch entity) {
+       session.save(entity);
     }
 
     @Override
-    public boolean update(Branch entity) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            session.update(entity);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void update(Branch entity) {
+      session.update(entity);
     }
 
     @Override
-    public boolean delete(String id) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            Branch branch = session.get(Branch.class, id);
-            session.delete(branch);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void delete(Branch entity) {
+        session.delete(entity);
     }
 
     @Override
     public Branch search(String id) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        try {
-            Branch branch= session.get(Branch.class, id);
-            return branch;
-        } catch (Exception e) {
-            return null;
-        }finally {
-            session.close();
-        }
+        return session.get(Branch.class, id);
     }
 }
 

@@ -11,101 +11,58 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 
+    private Session session;
 
+    @Override
+    public void setSession(Session session) {
+        this.session = session;
+    }
 
     @Override
     public List<User> getAll() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
         String hql = "FROM User";
-        Query query = session.createQuery(hql);
-        List<User> customerList = query.list();
-        session.close();
-        return customerList;
+        Query<User> query = session.createQuery(hql, User.class);
+        return query.list();
     }
 
     @Override
-    public boolean save(User entity) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.save(entity);
-            transaction.commit();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void save(User entity) {
+        session.save(entity);
     }
 
     @Override
-    public boolean update(User entity)  {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            User user = search(UserBOImpl.loggedUser.getEmail());
-            if (!(user.getEmail().equals(entity.getEmail()))){
-                String hql ="UPDATE User set email = :email WHERE email = :oldEmail";
-                Query query = session.createQuery(hql);
-                query.setParameter("email", entity.getEmail());
-                query.setParameter("oldEmail", user.getEmail());
-                int result = query.executeUpdate();
-                if (!(result>0)){
-                    throw new Exception("Something went wrong");
-                }
-            }
-            session.update(entity);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            transaction.rollback();
-            e.printStackTrace();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void update(User entity)  {
+       session.update(entity);
     }
 
     @Override
-    public boolean delete(String id)  {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            User user = session.get(User.class, id);
-            session.delete(user);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void delete(User entity)  {
+        session.delete(entity);
     }
 
     @Override
     public User search(String id) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-
-        try {
-            User user= session.get(User.class, id);
-            return user;
-        } catch (Exception e) {
-            return null;
-        }finally {
-            session.close();
-        }
+        return session.get(User.class, id);
     }
 
     @Override
     public List<User> getUsersWithOverdueBooks() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
         String hql = "SELECT u FROM User u JOIN u.bookTransactions t WHERE t.returnDate < CURRENT_DATE AND t.isReturned = false";
         Query query = session.createQuery(hql);
         List<User> users = query.list();
-        session.close();
         return users;
     }
+
+    @Override
+    public int updateUserEmail(String email, String oldEmail) {
+        String hql ="UPDATE User set email = :email WHERE email = :oldEmail";
+        Query query = session.createQuery(hql);
+        query.setParameter("email", email);
+        query.setParameter("oldEmail", oldEmail);
+        int result = query.executeUpdate();
+        return result;
+    }
+
+
 }
 

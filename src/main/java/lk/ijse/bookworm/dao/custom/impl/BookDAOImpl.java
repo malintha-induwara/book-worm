@@ -10,79 +10,42 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class BookDAOImpl implements BookDAO {
+
+
+    private Session session;
+
+    @Override
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+
     @Override
     public List<Book> getAll() {
-        Session session = SessionFactoryConfig.getInstance().getSession();
         String hql = "FROM Book ";
-
         Query query = session.createQuery(hql);
         List<Book> bookList = query.list();
-        session.close();
         return bookList;
     }
 
     @Override
-    public boolean save(Book entity) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.save(entity);
-            transaction.commit();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            return false;
-        } finally {
-            session.close();
-        }
+    public void save(Book entity) {
+        session.save(entity);
     }
 
     @Override
-    public boolean update(Book entity) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-            session.update(entity);
-            transaction.commit();
-            return true;
-        }catch (Exception e) {
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void update(Book entity) {
+        session.update(entity);
     }
 
     @Override
-    public boolean delete(String id) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        try{
-            Book book = session.get(Book.class, id);
-            session.delete(book);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            transaction.rollback();
-            return false;
-        }finally {
-            session.close();
-        }
+    public void delete(Book entity) {
+        session.delete(entity);
     }
 
     @Override
     public Book search(String id) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        try {
-            Book book = session.get(Book.class, id);
-            return book;
-        } catch (Exception e) {
-            return null;
-        }finally {
-            session.close();
-        }
+        return session.get(Book.class, id);
     }
 }
 

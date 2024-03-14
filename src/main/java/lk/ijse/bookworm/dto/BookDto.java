@@ -1,5 +1,7 @@
 package lk.ijse.bookworm.dto;
 
+import lk.ijse.bookworm.entity.Book;
+
 public class BookDto {
     private  String bookId;
     private String title;
@@ -78,5 +80,6 @@ public class BookDto {
     public void setBranchID(String branchID) {
         this.branchID = branchID;
     }
+
 }
 

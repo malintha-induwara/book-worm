@@ -93,7 +93,7 @@ public class BookDataFormController {
             }
 
         }else {
-            BookDto dto = new BookDto(txtBookId.getText(),txtTitle.getText(),txtAuthor.getText(),txtGenre.getText(),colBranch.getValue());
+            BookDto dto = new BookDto(txtBookId.getText(),txtTitle.getText(),txtAuthor.getText(),txtGenre.getText(),colBranch.getText());
             boolean isUpdated = bookBO.updateBook(dto);
 
             if (isUpdated){

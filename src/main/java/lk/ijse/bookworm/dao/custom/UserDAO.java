@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserDAO extends CrudDAO<User> {
     List<User> getUsersWithOverdueBooks();
+    int updateUserEmail(String email,String oldEmail);
 }
