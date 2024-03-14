@@ -52,7 +52,7 @@
                </font>
             </Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0984e3" height="48.0" layoutX="214.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="6.0" />
-            <Group layoutX="31.0" layoutY="97.0">
+            <Group layoutX="19.0" layoutY="97.0">
                <children>
                   <HBox layoutY="51.0" prefHeight="5.0" prefWidth="56.0" spacing="4.0">
                      <children>
