@@ -59,7 +59,7 @@ public class AdminSettingsFormController {
 
 
     @FXML
-    void btnLoginOnAction(ActionEvent event) {
+    void btnRemoveOnAction(ActionEvent event) {
 
     }
 
