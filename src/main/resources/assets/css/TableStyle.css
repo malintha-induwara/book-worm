@@ -5,6 +5,11 @@
 /*    -fx-font-size: 14px;*/
 /*}*/
 
+
+.table-view{
+    -fx-font-family: 'Open Sans';
+}
+
 .table-view .column-header-background * {
     -fx-background-color: #ffffff;
     -fx-font-size: 13;

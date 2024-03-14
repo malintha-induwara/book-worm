@@ -17,7 +17,12 @@
 
 <AnchorPane fx:id="dashBoardPane" prefHeight="680.0" prefWidth="804.0" stylesheets="@../assets/css/PageStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bookworm.controller.AdminDashBoardFormController">
    <children>
-      <Pane layoutX="28.0" layoutY="130.0" prefHeight="190.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
+      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Dashboard">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="28.0" layoutY="130.0" prefHeight="170.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
          <effect>
             <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
                <color>
@@ -26,7 +31,7 @@
             </DropShadow>
          </effect>
          <children>
-            <Group layoutX="53.0" layoutY="58.0">
+            <Group layoutX="53.0" layoutY="44.0">
                <children>
                   <Circle fill="#cde8ff" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="-16.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
@@ -36,18 +41,18 @@
                   </ImageView>
                </children>
             </Group>
-            <Label layoutX="110.0" layoutY="45.0" styleClass="lbl-dashboard-card-title" text="Books">
+            <Label layoutX="110.0" layoutY="31.0" styleClass="lbl-dashboard-card-title" text="Books">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label fx:id="lblBookCount" layoutX="155.0" layoutY="128.0" styleClass="lbl-dashboard-card-title" text="50">
+            <Label fx:id="lblBookCount" layoutX="155.0" layoutY="104.0" styleClass="lbl-dashboard-card-title" text="50">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0984e3" height="48.0" layoutX="214.0" layoutY="126.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="6.0" />
-            <Group layoutX="31.0" layoutY="111.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0984e3" height="48.0" layoutX="214.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="6.0" />
+            <Group layoutX="31.0" layoutY="97.0">
                <children>
                   <HBox layoutY="51.0" prefHeight="5.0" prefWidth="56.0" spacing="4.0">
                      <children>
@@ -84,22 +89,7 @@
                </children>
             </Group>
          </children></Pane>
-      <Label layoutX="27.0" layoutY="52.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Dashboard">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="347.0" prefHeight="299.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
-         <columns>
-            <TableColumn fx:id="colID" prefWidth="79.0" style="-fx-alignment: center;" text="ID" />
-            <TableColumn fx:id="colUserID" prefWidth="135.0" style="-fx-alignment: center;" text="UserID" />
-            <TableColumn fx:id="colBookID" prefWidth="108.0" style="-fx-alignment: center;" text="BookID" />
-            <TableColumn fx:id="colBorrowDate" prefWidth="146.0" style="-fx-alignment: center;" text="Borrow Date" />
-            <TableColumn fx:id="colReturnDate" prefWidth="135.0" style="-fx-alignment: center;" text="Return Date" />
-            <TableColumn fx:id="colLateCount" prefWidth="145.0" style="-fx-alignment: center;" text="Late Count" />
-         </columns>
-      </TableView>
-      <Pane layoutX="293.0" layoutY="130.0" prefHeight="190.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
+      <Pane layoutX="293.0" layoutY="130.0" prefHeight="170.0" prefWidth="220.0" styleClass="pane-dashboard-cards" stylesheets="@../assets/css/DashBoardStyles.css">
          <effect>
             <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
                <color>
@@ -108,7 +98,7 @@
             </DropShadow>
          </effect>
          <children>
-            <Group layoutX="21.0" layoutY="111.0">
+            <Group layoutX="21.0" layoutY="97.0">
                <children>
                   <HBox layoutY="51.0" prefHeight="5.0" prefWidth="56.0" spacing="4.0">
                      <children>
@@ -144,7 +134,7 @@
                   </HBox>
                </children>
             </Group>
-            <Group layoutX="54.0" layoutY="56.0">
+            <Group layoutX="54.0" layoutY="44.0">
                <children>
                   <Circle fill="#cde8ff" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="-16.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
@@ -154,20 +144,20 @@
                   </ImageView>
                </children>
             </Group>
-            <Label layoutX="111.0" layoutY="42.0" styleClass="lbl-dashboard-card-title" text="Users">
+            <Label layoutX="110.0" layoutY="29.0" styleClass="lbl-dashboard-card-title" text="Users">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label fx:id="lblUserCount" layoutX="159.0" layoutY="128.0" styleClass="lbl-dashboard-card-title" text="50">
+            <Label fx:id="lblUserCount" layoutX="156.0" layoutY="104.0" styleClass="lbl-dashboard-card-title" text="50">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0984e3" height="48.0" layoutX="215.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="6.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0984e3" height="48.0" layoutX="215.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="6.0" />
          </children>
       </Pane>
-      <Pane layoutX="557.0" layoutY="130.0" prefHeight="190.0" prefWidth="220.0" styleClass="pane-dashboard-card-gradiant" stylesheets="@../assets/css/DashBoardStyles.css">
+      <Pane layoutX="557.0" layoutY="130.0" prefHeight="170.0" prefWidth="220.0" styleClass="pane-dashboard-card-gradiant" stylesheets="@../assets/css/DashBoardStyles.css">
          <effect>
             <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
                <color>
@@ -212,17 +202,32 @@
                   </HBox>
                </children>
             </Group>
-            <Label fx:id="lblDueBookCount" layoutX="38.0" layoutY="88.0" styleClass="lbl-dashboard-card-title-gradiant" text="50">
+            <Label fx:id="lblDueBookCount" layoutX="38.0" layoutY="77.0" styleClass="lbl-dashboard-card-title-gradiant" text="50">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="140.0" styleClass="lbl-dashboard-card-title-gradiant" text="Due Books">
+            <Label layoutX="54.0" layoutY="122.0" styleClass="lbl-dashboard-card-title-gradiant" text="Due Books">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
          </children>
       </Pane>
+      <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="359.0" prefHeight="287.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="79.0" style="-fx-alignment: center;" text="ID" />
+            <TableColumn fx:id="colUserID" prefWidth="135.0" style="-fx-alignment: center;" text="UserID" />
+            <TableColumn fx:id="colBookID" prefWidth="108.0" style="-fx-alignment: center;" text="BookID" />
+            <TableColumn fx:id="colBorrowDate" prefWidth="146.0" style="-fx-alignment: center;" text="Borrow Date" />
+            <TableColumn fx:id="colReturnDate" prefWidth="135.0" style="-fx-alignment: center;" text="Return Date" />
+            <TableColumn fx:id="colLateCount" prefWidth="145.0" style="-fx-alignment: center;" text="Due Count" />
+         </columns>
+      </TableView>
+      <Label layoutX="28.0" layoutY="318.0" styleClass="label-dashboard" stylesheets="@../assets/css/PageStyles.css" text="Due Books">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
