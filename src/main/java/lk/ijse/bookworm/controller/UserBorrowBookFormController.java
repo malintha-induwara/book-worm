@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,7 @@ import lk.ijse.bookworm.dto.BorrowBookDto;
 import lk.ijse.bookworm.tm.BookTm;
 import lk.ijse.bookworm.tm.UserBorrowBookTm;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class UserBorrowBookFormController {
@@ -102,8 +104,63 @@ public class UserBorrowBookFormController {
     @FXML
     void btnBorrowOnAction(ActionEvent event) {
 
+        boolean isValidated = validateFields();
+
+        if (!isValidated){
+            return;
+        }
+
+
+        String bookID = cmbBookID.getText();
+        LocalDate returnDate = dpReturnDate.getValue();
+
+
+        BorrowBookDto borrowBookDto = new BorrowBookDto(UserBOImpl.loggedUser.getEmail(),bookID,returnDate.toString());
+
+        boolean isSaved = bookTransactionBO.saveBorrowedBook(borrowBookDto);
+
+        if (isSaved){
+            new Alert(Alert.AlertType.CONFIRMATION, "Book Borrowed").show();
+            loadBorrowedBooks();
+            loadBookIds();
+            clearFields();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Book Not Borrowed").show();
+        }
+
+
     }
 
+    private void clearFields() {
+        cmbBookID.clear();
+        dpReturnDate.clear();
+    }
+
+    private boolean validateFields() {
+
+        boolean isBookIDEmpty = cmbBookID.getText().isEmpty();
+
+        if (isBookIDEmpty){
+            cmbBookID.requestFocus();
+            cmbBookID.getStyleClass().add("mfx-combo-box-error");
+            return false;
+        }
+
+        cmbBookID.getStyleClass().remove("mfx-combo-box-error");
+
+
+        boolean isReturnDateEmpty = dpReturnDate.getText().isEmpty();
+
+        if (isReturnDateEmpty){
+            dpReturnDate.requestFocus();
+            dpReturnDate.getStyleClass().add("mfx-dp-picker-error");
+            return false;
+        }
+
+        dpReturnDate.getStyleClass().remove("mfx-dp-picker-error");
+
+        return true;
+    }
 
 
     @FXML

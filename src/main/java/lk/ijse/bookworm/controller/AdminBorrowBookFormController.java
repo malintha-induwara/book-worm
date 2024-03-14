@@ -253,7 +253,20 @@ public class AdminBorrowBookFormController {
         }
         cmbBookID.getStyleClass().remove("mfx-combo-box-error");
 
+
+        boolean isReturnDateEmpty = dpReturnDate.getText().isEmpty();
+
+        if (isReturnDateEmpty){
+            dpReturnDate.requestFocus();
+            dpReturnDate.getStyleClass().add("mfx-dp-picker-error");
+            return false;
+        }
+
+        dpReturnDate.getStyleClass().remove("mfx-dp-picker-error");
+
+
         return true;
+
     }
 
 

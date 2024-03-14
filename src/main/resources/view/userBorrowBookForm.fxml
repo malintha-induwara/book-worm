@@ -30,7 +30,7 @@
       </Label>
       <MFXFilterComboBox fx:id="cmbBookID" floatingText="Book ID" layoutX="236.0" layoutY="129.0" prefHeight="40.0" prefWidth="175.0" styleClass="mfx-combo-box" />
       <MFXTextField fx:id="txtSearch" floatMode="DISABLED" floatingText="Search" layoutX="27.0" layoutY="130.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="175.0" promptText="Search" styleClass="mfx-text-field-details" />
-      <MFXDatePicker fx:id="dpReturnDate" layoutX="442.0" layoutY="129.0" prefHeight="45.0" prefWidth="168.0" promptText="Return Date" />
+      <MFXDatePicker fx:id="dpReturnDate" layoutX="442.0" layoutY="129.0" prefHeight="45.0" prefWidth="168.0" promptText="Return Date" styleClass="mfx-dp-picker" />
       <MFXButton layoutX="666.0" layoutY="132.0" onAction="#btnBorrowOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-add" stylesheets="@../assets/css/PageStyles.css" text="Borrow">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
