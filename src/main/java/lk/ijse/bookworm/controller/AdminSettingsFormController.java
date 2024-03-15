@@ -5,13 +5,17 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import lk.ijse.bookworm.bo.BOFactory;
 import lk.ijse.bookworm.bo.custom.AdminBO;
@@ -59,8 +63,28 @@ public class AdminSettingsFormController {
 
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) throws IOException {
+        boolean isDeleted = adminBO.deleteAdmin(AdminBOImpl.loggedAdmin.getUsername());
+        if (isDeleted) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Delete Successfully").show();
+            loadLoginForm();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Delete Failed").show();
+        }
+    }
 
+    private void loadLoginForm() throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/mainForm.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Login");
+        stage.show();
+
+        //Close the Current Window
+        Stage currentStage = (Stage) txtUsername.getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML

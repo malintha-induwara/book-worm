@@ -126,6 +126,13 @@ public class UserLoginFormController {
         loginPane.getChildren().add(adminLoginPane);
     }
 
+    @FXML
+    void txtPasswordOnAction(ActionEvent event) throws IOException {
+        btnLogin(event);
+    }
+
+
+
 
 }
 

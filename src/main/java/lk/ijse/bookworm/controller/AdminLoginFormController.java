@@ -124,6 +124,12 @@ public class AdminLoginFormController {
     }
 
 
+    @FXML
+    void txtPasswordOnAction(ActionEvent event) throws IOException {
+        btnLogin(event);
+    }
+
+
 
 }
 

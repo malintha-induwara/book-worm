@@ -217,7 +217,7 @@
       <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="359.0" prefHeight="287.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
          <columns>
             <TableColumn fx:id="colID" prefWidth="79.0" style="-fx-alignment: center;" text="ID" />
-            <TableColumn fx:id="colUserID" prefWidth="135.0" style="-fx-alignment: center;" text="UserID" />
+            <TableColumn fx:id="colUserID" prefWidth="135.0" style="-fx-alignment: center;" text="User Name" />
             <TableColumn fx:id="colBookID" prefWidth="108.0" style="-fx-alignment: center;" text="BookID" />
             <TableColumn fx:id="colBorrowDate" prefWidth="146.0" style="-fx-alignment: center;" text="Borrow Date" />
             <TableColumn fx:id="colReturnDate" prefWidth="135.0" style="-fx-alignment: center;" text="Return Date" />

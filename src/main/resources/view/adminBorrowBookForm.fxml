@@ -30,10 +30,10 @@
       <TableView fx:id="tblBorrowBook" focusTraversable="false" layoutX="28.0" layoutY="204.0" prefHeight="433.0" prefWidth="749.0" stylesheets="@../assets/css/TableStyle.css">
          <columns>
             <TableColumn fx:id="colID" prefWidth="62.0" style="-fx-alignment: center;" text="ID" />
-            <TableColumn fx:id="colUserID" prefWidth="95.0" style="-fx-alignment: center;" text="UserID" />
-            <TableColumn fx:id="colBookID" prefWidth="117.0" style="-fx-alignment: center;" text="BookID" />
-            <TableColumn fx:id="colBorrowDate" prefWidth="130.0" style="-fx-alignment: center;" text="Borrow Date" />
-            <TableColumn fx:id="colReturnDate" prefWidth="139.0" style="-fx-alignment: center;" text="Return Date" />
+            <TableColumn fx:id="colUserID" prefWidth="161.0" style="-fx-alignment: center;" text="UserID" />
+            <TableColumn fx:id="colBookID" prefWidth="82.0" style="-fx-alignment: center;" text="BookID" />
+            <TableColumn fx:id="colBorrowDate" prefWidth="123.0" style="-fx-alignment: center;" text="Borrow Date" />
+            <TableColumn fx:id="colReturnDate" prefWidth="115.0" style="-fx-alignment: center;" text="Return Date" />
             <TableColumn fx:id="colIsReturned" prefWidth="117.0" style="-fx-alignment: center;" text="Returned" />
             <TableColumn fx:id="colRemove" prefWidth="88.0" style="-fx-alignment: center;" text="Remove" />
          </columns>

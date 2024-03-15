@@ -13,7 +13,6 @@ public class Admin {
     @Column(name = "username",length = 30)
     private String username;
 
-
     @Column(name = "password")
     private String password;
 
