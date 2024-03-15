@@ -70,6 +70,14 @@ public class AdminBOImpl implements AdminBO {
         Transaction transaction = session.beginTransaction();
         try{
             adminDAO.setSession(session);
+            Admin admin = adminDAO.search(AdminBOImpl.loggedAdmin.getUsername());
+            session.clear();
+            if (!(admin.getUsername().equals(dto.getUsername()))){
+                int result = adminDAO.updateAdminUsername(dto.getUsername(), admin.getUsername());
+                if (!(result > 0)){
+                    throw new RuntimeException("Something went wrong");
+                }
+            }
             adminDAO.update(new Admin(dto.getUsername(),dto.getPassword(), dto.getImgUrl()));
             transaction.commit();
             return true;

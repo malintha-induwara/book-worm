@@ -23,7 +23,7 @@
             <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="197.0" layoutY="246.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
             <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="197.0" layoutY="325.0" prefHeight="55.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
             <MFXButton layoutX="197.0" layoutY="418.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-update-settings" text="Update" />
-            <MFXButton layoutX="357.0" layoutY="418.0" onAction="#btnRemoveOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-remove-settings" text="Remove" />
+            <MFXButton layoutX="357.0" layoutY="418.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="110.0" styleClass="mfx-button-remove-settings" text="Remove" />
             <Circle fx:id="circleImg" fill="WHITE" layoutX="334.0" layoutY="130.0" onMouseClicked="#circleImgOnAction" radius="97.0" stroke="BLACK" strokeType="INSIDE">
                <cursor>
                   <Cursor fx:constant="HAND" />

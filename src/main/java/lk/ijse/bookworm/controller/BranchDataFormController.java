@@ -82,7 +82,7 @@ public class BranchDataFormController {
                 new Alert(Alert.AlertType.ERROR, "Failed to Add Branch").show();
             }
         } else {
-            BranchDto branchDto = new BranchDto(txtBranchID.getText(), txtBranchName.getText(), txtBranchAddress.getText(), cmbAdmin.getValue());
+            BranchDto branchDto = new BranchDto(txtBranchID.getText(), txtBranchName.getText(), txtBranchAddress.getText(), cmbAdmin.getText());
             boolean isUpdated = branchBO.updateBranch(branchDto);
 
             if (isUpdated) {

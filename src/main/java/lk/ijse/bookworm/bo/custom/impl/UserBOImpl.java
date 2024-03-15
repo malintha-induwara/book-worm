@@ -70,10 +70,14 @@ public class UserBOImpl implements UserBO {
         try {
             userDAO.setSession(session);
             User user = userDAO.search(dto.getEmail());
+            //To clear the session
+            session.clear();
+
             userDAO.update(new User(dto.getEmail(), dto.getName(), dto.getAddress(), dto.getPassword(), user.getImgUrl()));
             transaction.commit();
             return true;
         }catch (Exception e) {
+            e.printStackTrace();
             transaction.rollback();
             return false;
         } finally {
@@ -88,6 +92,8 @@ public class UserBOImpl implements UserBO {
         try{
             userDAO.setSession(session);
             User user = userDAO.search(UserBOImpl.loggedUser.getEmail());
+            session.clear();
+
             if (!(user.getEmail().equals(dto.getEmail()))){
                 int result=userDAO.updateUserEmail(dto.getEmail(),user.getEmail());
                 if (!(result>0)){

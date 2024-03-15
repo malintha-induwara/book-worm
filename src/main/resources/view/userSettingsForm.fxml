@@ -22,10 +22,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Circle>
-            <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" layoutX="196.0" layoutY="320.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
+            <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" layoutX="196.0" layoutY="189.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
             <MFXPasswordField fx:id="txtPassword" floatMode="BORDER" floatingText="Password" layoutX="196.0" layoutY="383.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
-            <MFXTextField fx:id="txtName" floatMode="BORDER" floatingText="Name" layoutX="196.0" layoutY="195.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
-            <MFXTextField fx:id="txtAddress" floatMode="BORDER" floatingText="Address" layoutX="196.0" layoutY="258.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
+            <MFXTextField fx:id="txtName" floatMode="BORDER" floatingText="Name" layoutX="197.0" layoutY="253.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
+            <MFXTextField fx:id="txtAddress" floatMode="BORDER" floatingText="Address" layoutX="197.0" layoutY="319.0" prefHeight="50.0" prefWidth="270.0" styleClass="mfx-text-field-details" />
          </children>
          <effect>
             <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">

@@ -41,8 +41,6 @@ public class BookBOImpl implements BookBO {
         }finally {
             session.close();
         }
-
-        System.out.println(session.isOpen());
         return bookDtoList;
     }
 

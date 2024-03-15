@@ -47,5 +47,14 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
 
+    @Override
+    public int updateAdminUsername(String userName, String oldUsername) {
+        String hql ="UPDATE Admin set username = :username WHERE username = :oldUsername";
+        Query query = session.createQuery(hql);
+        query.setParameter("username", userName);
+        query.setParameter("oldUsername", oldUsername);
+        int result = query.executeUpdate();
+        return result;
+    }
 }
 
