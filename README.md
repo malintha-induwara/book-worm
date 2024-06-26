@@ -30,7 +30,7 @@
 * **Layered Architecture:** Organized structure for better maintenance and scalability.
 * **Modern UI:** Simple and user-friendly interface.
 
-## How to use this rep
+## How to use this repo
 
 * Clone the repo
 * Open the project using IDE like IntelliJ IDEA
