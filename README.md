@@ -36,7 +36,7 @@
 * Open the project using IDE like IntelliJ IDEA
 * Reload the pom.xml file via Maven Tool Window
 * Create a database using schema and change the username and password of DB Connection.class
-* Run Lancher Wrapper ✨
+* Run Launcher Wrapper ✨
 
 ## Built with
 * Java
